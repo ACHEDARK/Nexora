@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexora - Desarrollo de Software</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"
+      defer
+    ></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-900 text-gray-100">
+    <!-- Navbar -->
+    <!-- Include global header -->
+    <div id="header-placeholder"></div>
+    <script>
+      fetch("/assets/templates/header.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("header-placeholder").innerHTML = html;
+          if (typeof addMobileMenuListener === "function") {
+            addMobileMenuListener();
+          }
+        });
+    </script>
+
+    <!-- Hero section -->
+    <section
+      id="inicio"
+      class="relative bg-[#1b2a6a] text-white min-h-[90vh] flex items-center overflow-hidden"
+    >
+      <!-- Optimized single background image -->
+      <div class="absolute inset-0 w-full h-full z-0">
+        <img
+          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80"
+          class="object-cover w-full h-full"
+          alt="Background"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-[#16194a]/80 via-blue-900/60 to-indigo-900/80"
+        ></div>
+      </div>
+
+      <!-- Simplified blob animations -->
+      <div class="absolute inset-0 -z-10">
+        <div
+          class="absolute top-0 left-1/2 w-[400px] h-[400px] bg-blue-700 rounded-full filter blur-2xl opacity-60 animate-blob"
+        ></div>
+        <div
+          class="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-indigo-700 rounded-full filter blur-xl opacity-50 animate-blob animation-delay-2000"
+        ></div>
+      </div>
+
+      <div
+        class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between w-full relative z-10"
+      >
+        <!-- Left side text -->
+        <div class="md:w-1/2 space-y-6">
+          <h1 class="text-5xl font-semibold leading-tight max-w-lg">
+            La empresa de desarrollo de software para IA
+          </h1>
+          <p class="uppercase font-bold tracking-widest text-blue-400">
+            Impulsamos tu futuro digital.
+          </p>
+          <p class="max-w-md text-gray-300 leading-relaxed">
+            Diseñamos, construimos y dotamos de soluciones web, móviles y de
+            datos basadas en IA.
+          </p>
+          <div class="flex space-x-6 mt-4">
+            <a
+              href="#contacto"
+              class="bg-blue-600 hover:bg-blue-700 transition-colors duration-300 px-6 py-3 rounded font-bold flex items-center gap-2 text-sm uppercase shadow-lg"
+            >
+              Contacta al profesional
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </a>
+          </div>
+          <div
+            class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-10 max-w-md text-center text-blue-900 font-semibold bg-white rounded"
+          >
+            <a
+              href="src/pages/technologies/ai.html"
+              class="py-2 hover:bg-blue-100 transition-colors"
+              >AI</a
+            >
+            <a
+              href="src/pages/technologies/datos.html"
+              class="py-2 hover:bg-blue-100 transition-colors"
+              >Datos</a
+            >
+            <a
+              href="src/pages/technologies/web.html"
+              class="py-2 hover:bg-blue-100 transition-colors"
+              >Web</a
+            >
+            <a
+              href="src/pages/technologies/movil.html"
+              class="py-2 hover:bg-blue-100 transition-colors"
+              >Móvil</a
+            >
+          </div>
+        </div>
+
+        <!-- Right side code block -->
+        <div class="md:w-1/2 relative mt-12 md:mt-0">
+          <div
+            class="bg-[#2d2d2d] rounded-lg shadow-2xl p-8 font-mono text-sm leading-relaxed text-gray-300 max-w-lg mx-auto overflow-x-auto"
+          >
+            <pre><code>
+<span class="text-gray-500"># AI-powered Development Team Building Intelligent Apps</span>
+<span><span class="text-blue-400 font-bold">class</span> <span class="text-orange-400">NexoraTeam</span> :</span>
+<span>  <span class="text-blue-400 font-bold">def</span> <span class="text-yellow-300">__init__</span> ( <span class="text-white">self</span> ):</span>
+<span>    <span class="text-white">self</span>.expertise   =  [ <span class="text-green-400">'AI'</span> , <span class="text-green-400">'Data'</span> , <span class="text-green-400">'Mobile'</span> , <span class="text-green-400">'Web'</span> ]</span>
+<span>    <span class="text-white">self</span>.location    =  <span class="text-green-400">'Nearshore'</span></span>
+<span>    <span class="text-white">self</span>.commitment  =  <span class="text-green-400">'Dedicated'</span></span>
+<span>    <span class="text-white">self</span>.results     = <span class="text-green-400">'Guaranteed'</span></span>
+<span></span>
+<span>  <span class="text-blue-400 font-bold">def</span> <span class="text-yellow-300">deploy</span> ( <span class="text-white">self</span> ):</span>
+<span>    <span class="text-blue-400 font-bold">return</span> <span class="text-green-400">"We boost your digital future"</span></span>
+<span></span>
+<span>team  =  <span class="text-orange-400">NexoraTeam</span> ()</span>
+<span>team . deploy ()</span>
+              </code></pre>
+          </div>
+          <div
+            class="hidden md:absolute bottom-4 right-4 bg-white rounded-md p-4 shadow-lg max-w-xs text-gray-900 font-sans text-sm"
+          >
+            <div class="flex items-center space-x-2 mb-1">
+              <svg
+                class="w-5 h-5 text-yellow-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.974a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.388 2.462a1 1 0 00-.364 1.118l1.287 3.973c.3.922-.755 1.688-1.54 1.118l-3.388-2.462a1 1 0 00-1.175 0l-3.388 2.462c-.784.57-1.838-.196-1.539-1.118l1.287-3.973a1 1 0 00-.364-1.118L2.045 9.4c-.783-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.974z"
+                />
+              </svg>
+              <span class="font-bold">4,9 estrellas</span>
+            </div>
+            <p class="text-xs">Calificación verificada en Clutch.co</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo cumplimos con cada sprint -->
+    <section id="como-cumplimos" class="py-24 bg-white" data-aos="fade-in">
+      <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-12">
+        <!-- Left vertical menu -->
+        <nav
+          class="hidden md:block md:w-1/4 border-l-4 border-gray-300 sticky top-24 h-fit"
+        >
+          <ul class="space-y-4 text-gray-700 font-semibold text-sm">
+            <li>
+              <a
+                href="#experiencia"
+                class="menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300 font-semibold text-blue-600 bg-blue-50"
+                data-target="experiencia"
+              >
+                Experiencia en desarrollo
+              </a>
+            </li>
+            <li>
+              <a
+                href="#modelos"
+                class="menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300 font-semibold text-gray-700"
+                data-target="modelos"
+              >
+                Modelos de entrega
+              </a>
+            </li>
+            <li>
+              <a
+                href="#clientes"
+                class="menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300 font-semibold text-gray-700"
+                data-target="clientes"
+              >
+                Clientes
+              </a>
+            </li>
+            <li>
+              <a
+                href="#calificaciones"
+                class="menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300 font-semibold text-gray-700"
+                data-target="calificaciones"
+              >
+                Calificaciones principales
+              </a>
+            </li>
+            <li>
+              <a
+                href="#capacidades"
+                class="menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300 font-semibold text-gray-700"
+                data-target="capacidades"
+              >
+                Capacidades de pila completa
+              </a>
+            </li>
+            <li>
+              <a
+                href="#como-lo-entregamos"
+                class="menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300 font-semibold text-gray-700"
+                data-target="como-lo-entregamos"
+              >
+                Cómo lo entregamos
+              </a>
+            </li>
+            <li>
+              <a
+                href="#lideres"
+                class="menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300 font-semibold text-gray-700"
+                data-target="lideres"
+              >
+                Los líderes confían en nosotros
+              </a>
+            </li>
+            <li>
+              <a
+                href="#roles"
+                class="menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300 font-semibold text-gray-700"
+                data-target="roles"
+              >
+                Roles que ofrecemos
+              </a>
+            </li>
+            <li>
+              <a
+                href="#preguntas"
+                class="menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300 font-semibold text-gray-700"
+                data-target="preguntas"
+              >
+                Preguntas frecuentes
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- Right content blocks -->
+        <div
+          id="content-container"
+          class="md:w-3/4 text-gray-800 max-h-screen overflow-y-auto"
+        >
+          <!-- Experiencia en desarrollo -->
+          <div
+            id="experiencia"
+            class="content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-blue-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Experiencia"
+              />
+              <h3 class="text-3xl font-bold text-blue-900">
+                Experiencia en desarrollo
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Contamos con años de experiencia desarrollando soluciones
+              tecnológicas a medida para diversos sectores, garantizando calidad
+              y eficiencia en cada proyecto.
+            </p>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="bg-blue-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-blue-800 mb-2">Sectores</h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Finanzas</li>
+                  <li>• Salud</li>
+                  <li>• Comercio electrónico</li>
+                </ul>
+              </div>
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-green-800 mb-2">Metodologías</h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Ágiles</li>
+                  <li>• Scrum</li>
+                  <li>• Kanban</li>
+                </ul>
+              </div>
+              <div class="bg-purple-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-purple-800 mb-2">
+                  Certificaciones
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• AWS</li>
+                  <li>• Google Cloud</li>
+                  <li>• Microsoft</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Modelos de entrega -->
+          <div
+            id="modelos"
+            class="content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-green-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Modelos"
+              />
+              <h3 class="text-3xl font-bold text-green-900">
+                Modelos de entrega
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Ofrecemos modelos flexibles de entrega, adaptándonos a las
+              necesidades específicas de cada cliente para asegurar la máxima
+              satisfacción y resultados óptimos.
+            </p>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-green-800 mb-2">
+                  Entrega Continua
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Integración y despliegue automatizados
+                </p>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-blue-800 mb-2">Trabajo Remoto</h4>
+                <p class="text-sm text-gray-600">
+                  Flexibilidad según conveniencia
+                </p>
+              </div>
+              <div class="bg-purple-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-purple-800 mb-2">
+                  Planes Personalizados
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Proyectos corto y largo plazo
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Clientes -->
+          <div
+            id="clientes"
+            class="content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-purple-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Clientes"
+              />
+              <h3 class="text-3xl font-bold text-purple-900">Clientes</h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Hemos trabajado con una amplia gama de clientes, desde startups
+              hasta grandes corporaciones, siempre enfocándonos en construir
+              relaciones duraderas y de confianza.
+            </p>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="bg-purple-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-purple-800 mb-2">Startups</h4>
+                <p class="text-sm text-gray-600">
+                  Innovadoras en FinTech y HealthTech
+                </p>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-blue-800 mb-2">Corporaciones</h4>
+                <p class="text-sm text-gray-600">
+                  Proyectos globales multinacionales
+                </p>
+              </div>
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-green-800 mb-2">
+                  Colaboraciones
+                </h4>
+                <p class="text-sm text-gray-600">
+                  A largo plazo con clientes satisfechos
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Calificaciones principales -->
+          <div
+            id="calificaciones"
+            class="content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-yellow-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Calificaciones"
+              />
+              <h3 class="text-3xl font-bold text-yellow-900">
+                Calificaciones principales
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Nuestras calificaciones y reconocimientos reflejan nuestro
+              compromiso con la excelencia y la satisfacción del cliente en cada
+              proyecto que emprendemos.
+            </p>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="bg-yellow-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-yellow-800 mb-2">Premios</h4>
+                <p class="text-sm text-gray-600">
+                  Nacionales e internacionales
+                </p>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-blue-800 mb-2">Innovación</h4>
+                <p class="text-sm text-gray-600">Tecnológica y calidad</p>
+              </div>
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-green-800 mb-2">Clientes</h4>
+                <p class="text-sm text-gray-600">Avalan nuestra excelencia</p>
+              </div>
+            </div>
+          </div>
+          <!-- Capacidades de pila completa -->
+          <div
+            id="capacidades"
+            class="content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-red-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Capacidades"
+              />
+              <h3 class="text-3xl font-bold text-red-900">
+                Capacidades de pila completa
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Contamos con un equipo multidisciplinario con habilidades en todas
+              las capas del desarrollo tecnológico, desde frontend hasta backend
+              y DevOps.
+            </p>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="bg-red-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-red-800 mb-2">Frontend</h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• React</li>
+                  <li>• Vue</li>
+                  <li>• Angular</li>
+                </ul>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-blue-800 mb-2">Backend</h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Node.js</li>
+                  <li>• Python</li>
+                  <li>• Java</li>
+                </ul>
+              </div>
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-green-800 mb-2">DevOps</h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• CI/CD</li>
+                  <li>• Docker</li>
+                  <li>• Kubernetes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Cómo lo entregamos -->
+          <div
+            id="como-lo-entregamos"
+            class="content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-indigo-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Entrega"
+              />
+              <h3 class="text-3xl font-bold text-indigo-900">
+                Cómo lo entregamos
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Garantizamos entregas puntuales y de alta calidad, con
+              comunicación constante y adaptabilidad a los cambios durante cada
+              sprint.
+            </p>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="bg-indigo-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-indigo-800 mb-2">
+                  Revisión Técnica
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Previa al inicio del proyecto
+                </p>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-blue-800 mb-2">Alineación</h4>
+                <p class="text-sm text-gray-600">Dirigida por equipo senior</p>
+              </div>
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-green-800 mb-2">Garantía</h4>
+                <p class="text-sm text-gray-600">
+                  Arquitectura y personal adecuados
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Los líderes confían en nosotros -->
+          <div
+            id="lideres"
+            class="content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-pink-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Líderes"
+              />
+              <h3 class="text-3xl font-bold text-pink-900">
+                Los líderes confían en nosotros
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Contamos con el respaldo y la confianza de líderes en la industria
+              que avalan la calidad y profesionalismo de nuestro trabajo.
+            </p>
+            <div class="bg-pink-50 p-6 rounded-lg">
+              <h4 class="font-semibold text-pink-800 mb-4">
+                Testimonios de Líderes
+              </h4>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow-sm">
+                  <p class="text-sm text-gray-600 italic">
+                    "Excelente trabajo en nuestro proyecto de transformación
+                    digital."
+                  </p>
+                  <p class="text-xs text-pink-600 mt-2 font-semibold">
+                    - CEO, Empresa Tech
+                  </p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm">
+                  <p class="text-sm text-gray-600 italic">
+                    "Profesionalismo y calidad excepcionales."
+                  </p>
+                  <p class="text-xs text-pink-600 mt-2 font-semibold">
+                    - CTO, Corporación Global
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Roles que ofrecemos -->
+          <div
+            id="roles"
+            class="content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-teal-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Roles"
+              />
+              <h3 class="text-3xl font-bold text-teal-900">
+                Roles que ofrecemos
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Ofrecemos una variedad de roles especializados para cubrir todas
+              las necesidades de desarrollo y gestión de proyectos.
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="bg-teal-50 p-4 rounded-lg text-center">
+                <h4 class="font-semibold text-teal-800 mb-2">Frontend Dev</h4>
+                <p class="text-sm text-gray-600">React, Vue, Angular</p>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg text-center">
+                <h4 class="font-semibold text-blue-800 mb-2">Backend Dev</h4>
+                <p class="text-sm text-gray-600">Node.js, Python, Java</p>
+              </div>
+              <div class="bg-green-50 p-4 rounded-lg text-center">
+                <h4 class="font-semibold text-green-800 mb-2">DevOps</h4>
+                <p class="text-sm text-gray-600">AWS, Docker, Kubernetes</p>
+              </div>
+              <div class="bg-purple-50 p-4 rounded-lg text-center">
+                <h4 class="font-semibold text-purple-800 mb-2">QA Engineer</h4>
+                <p class="text-sm text-gray-600">Testing, Automation</p>
+              </div>
+            </div>
+          </div>
+          <!-- Preguntas frecuentes -->
+          <div
+            id="preguntas"
+            class="content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-orange-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Preguntas"
+              />
+              <h3 class="text-3xl font-bold text-orange-900">
+                Preguntas frecuentes
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Resolvemos las dudas más comunes para facilitar la comunicación y
+              el entendimiento con nuestros clientes.
+            </p>
+            <div class="space-y-4">
+              <div class="bg-orange-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-orange-800 mb-2">
+                  ¿Cuál es el tiempo de entrega típico?
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Depende del proyecto, pero generalmente entre 2-12 semanas
+                  para MVP.
+                </p>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-blue-800 mb-2">
+                  ¿Trabajan con startups?
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Sí, tenemos experiencia con startups y ofrecemos planes
+                  flexibles.
+                </p>
+              </div>
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-green-800 mb-2">
+                  ¿Qué tecnologías utilizan?
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Utilizamos las tecnologías más modernas: React, Node.js,
+                  Python, AWS, etc.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Acerca de -->
+    <section id="acerca" class="py-28 bg-white" data-aos="fade-in">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2
+          class="text-5xl font-extrabold mb-8 text-[#16194a] tracking-tight"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          ¿Quiénes somos?
+        </h2>
+        <p
+          class="text-2xl mb-8 text-gray-700 font-light max-w-3xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          Nexora es una empresa ecuatoriana de desarrollo de software,
+          especializada en crear soluciones tecnológicas de alto impacto para
+          empresas de todos los tamaños. Nos apasiona la innovación, la calidad
+          y el trabajo en equipo.
+        </p>
+        <div
+          class="flex flex-col md:flex-row items-center justify-center gap-12 mt-12"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"
+            class="rounded-2xl w-80 shadow-2xl border-4 border-blue-100 transition-transform hover:scale-105"
+            alt="Equipo Nexora"
+            loading="lazy"
+          />
+          <div class="text-left max-w-lg">
+            <p class="text-xl mb-4 font-medium text-blue-900">
+              Nuestro objetivo es acompañar a nuestros clientes en su
+              transformación digital, brindando:
+            </p>
+            <ul class="list-disc list-inside text-lg text-gray-600 space-y-2">
+              <li data-aos="fade-right" data-aos-delay="400">
+                Desarrollo de software a medida
+              </li>
+              <li data-aos="fade-right" data-aos-delay="500">
+                Consultoría tecnológica
+              </li>
+              <li data-aos="fade-right" data-aos-delay="600">
+                Automatización de procesos
+              </li>
+              <li data-aos="fade-right" data-aos-delay="700">
+                Integración de sistemas
+              </li>
+              <li data-aos="fade-right" data-aos-delay="800">
+                Soporte y mantenimiento
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Include services section -->
+    <div id="services-placeholder"></div>
+    <script>
+      fetch("assets/templates/services.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("services-placeholder").innerHTML = html;
+        });
+    </script>
+
+    <!-- Include projects section -->
+    <div id="projects-placeholder"></div>
+    <script>
+      fetch("assets/templates/projects.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("projects-placeholder").innerHTML = html;
+        });
+    </script>
+
+    <!-- Include team section -->
+    <div id="team-placeholder"></div>
+    <script>
+      fetch("assets/templates/team.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("team-placeholder").innerHTML = html;
+        });
+    </script>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-24 bg-white" data-aos="fade-in">
+      <div class="max-w-4xl mx-auto px-4">
+        <h2
+          class="text-4xl font-extrabold mb-10 text-center text-[#16194a]"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          Contáctanos
+        </h2>
+        <div
+          class="flex flex-col md:flex-row items-center justify-center gap-10"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div class="md:w-1/2 flex justify-center mb-8 md:mb-0">
+            <img
+              src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80"
+              class="rounded-2xl w-60 h-60 object-cover shadow-xl border-4 border-blue-100 transition-transform hover:scale-105"
+              alt="Contacto Nexora"
+            />
+          </div>
+          <form
+            class="md:w-1/2 bg-white rounded-2xl p-8 shadow-xl border border-blue-100 text-gray-800 space-y-5"
+            data-aos="fade-in"
+            data-aos-delay="300"
+          >
+            <div>
+              <label class="block mb-2 font-semibold text-blue-900"
+                >Nombre</label
+              >
+              <input
+                type="text"
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+            <div>
+              <label class="block mb-2 font-semibold text-blue-900"
+                >Correo electrónico</label
+              >
+              <input
+                type="email"
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300"
+                placeholder="tucorreo@email.com"
+                required
+              />
+            </div>
+            <div>
+              <label class="block mb-2 font-semibold text-blue-900"
+                >Mensaje</label
+              >
+              <textarea
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300"
+                rows="4"
+                placeholder="¿En qué podemos ayudarte?"
+                required
+              ></textarea>
+            </div>
+            <div
+              id="success-message"
+              class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4"
+            >
+              ¡Mensaje enviado exitosamente! Nos pondremos en contacto contigo
+              pronto.
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-[#16194a] text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-all duration-300 hover:scale-105 text-lg shadow-md"
+            >
+              Enviar mensaje
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-[#16194a] text-gray-200 py-12 text-center mt-10 border-t-2 border-blue-400/30"
+      data-aos="fade-in"
+    >
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-4"
+      >
+        <div class="mb-4 md:mb-0" data-aos="fade-up" data-aos-delay="100">
+          <p class="font-bold text-lg">
+            &copy; 2025 Nexora. Todos los derechos reservados.
+          </p>
+          <p class="text-sm text-gray-400 mt-1">
+            Desarrollo de software profesional en Ecuador y Latinoamérica.
+          </p>
+        </div>
+        <div class="flex space-x-6" data-aos="fade-up" data-aos-delay="200">
+          <a
+            href="#"
+            class="hover:text-blue-400 transition-all duration-300 hover:scale-110"
+            ><img
+              src="https://img.icons8.com/ios-filled/32/ffffff/linkedin.png"
+              class="inline"
+              alt="LinkedIn"
+          /></a>
+          <a
+            href="#"
+            class="hover:text-blue-400 transition-all duration-300 hover:scale-110"
+            ><img
+              src="https://img.icons8.com/ios-filled/32/ffffff/github.png"
+              class="inline"
+              alt="GitHub"
+          /></a>
+          <a
+            href="#"
+            class="hover:text-blue-400 transition-all duration-300 hover:scale-110"
+            ><img
+              src="https://img.icons8.com/ios-filled/32/ffffff/twitterx.png"
+              class="inline"
+              alt="Twitter"
+          /></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+      AOS.init({ once: true });
+    </script>
+  </body>
+</html>
