@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acerca de Nexora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="bg-white text-gray-800">
+    <!-- Include global header -->
+    <div id="header-placeholder"></div>
+    <script>
+      fetch("/assets/templates/header.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("header-placeholder").innerHTML = html;
+          if (typeof addMobileMenuListener === "function") {
+            addMobileMenuListener();
+          }
+        });
+    </script>
+    <section class="py-28 bg-white" data-aos="fade-in">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2
+          class="text-5xl font-extrabold mb-8 text-[#16194a] tracking-tight"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          ¿Quiénes somos?
+        </h2>
+        <p
+          class="text-2xl mb-8 text-gray-700 font-light max-w-3xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          Nexora es una empresa ecuatoriana líder en desarrollo de software,
+          especializada en crear soluciones tecnológicas innovadoras que
+          impulsan la transformación digital de empresas de todos los tamaños.
+          Con más de 5 años de experiencia, nos apasiona la innovación, la
+          calidad y el trabajo en equipo para entregar productos que generan
+          impacto real.
+        </p>
+        <div
+          class="flex flex-col md:flex-row items-center justify-center gap-12 mt-12"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"
+            class="rounded-2xl w-80 shadow-2xl border-4 border-blue-100 transition-transform hover:scale-105"
+            alt="Equipo Nexora"
+          />
+          <div class="text-left max-w-lg">
+            <p class="text-xl mb-4 font-medium text-blue-900">
+              Nuestro objetivo es acompañar a nuestros clientes en su
+              transformación digital, brindando:
+            </p>
+            <ul class="list-disc list-inside text-lg text-gray-600 space-y-2">
+              <li data-aos="fade-right" data-aos-delay="400">
+                Desarrollo de software a medida con las últimas tecnologías
+              </li>
+              <li data-aos="fade-right" data-aos-delay="500">
+                Consultoría tecnológica estratégica y asesoramiento experto
+              </li>
+              <li data-aos="fade-right" data-aos-delay="600">
+                Automatización de procesos para aumentar la eficiencia
+              </li>
+              <li data-aos="fade-right" data-aos-delay="700">
+                Integración de sistemas complejos y APIs avanzadas
+              </li>
+              <li data-aos="fade-right" data-aos-delay="800">
+                Soporte técnico continuo y mantenimiento proactivo
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Misión, Visión, Valores -->
+    <section class="py-20 bg-gray-50" data-aos="fade-in">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2
+          class="text-4xl font-extrabold mb-12 text-center text-[#16194a]"
+          data-aos="fade-up"
+        >
+          Nuestra Filosofía
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="bg-white rounded-2xl shadow-lg p-8 text-center"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div
+              class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-blue-900">Misión</h3>
+            <p class="text-gray-600">
+              Nuestra misión es ofrecer herramientas tecnológicas que no solo
+              digitalicen procesos, sino que realmente resuelvan los problemas
+              de nuestros clientes.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-2xl shadow-lg p-8 text-center"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div
+              class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-green-900">Visión</h3>
+            <p class="text-gray-600">
+              Convertirnos en líderes en la innovación tecnológica, ofreciendo
+              soluciones de software confiables y de vanguardia que generen
+              valor a nivel nacional e internacional.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-2xl shadow-lg p-8 text-center"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <div
+              class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-purple-900">Valores</h3>
+            <p class="text-gray-600">
+              Innovación, Integridad, Excelencia, Colaboración y Compromiso.
+              Estos principios guían cada proyecto y relación con nuestros
+              clientes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estadísticas -->
+    <section class="py-20 bg-[#16194a] text-white" data-aos="fade-in">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2 class="text-4xl font-extrabold mb-12" data-aos="fade-up">
+          Nuestros Logros
+        </h2>
+        <div class="grid md:grid-cols-4 gap-8">
+          <div data-aos="zoom-in" data-aos-delay="200">
+            <div class="text-5xl font-bold mb-2">50+</div>
+            <p class="text-xl">Proyectos Completados</p>
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="300">
+            <div class="text-5xl font-bold mb-2">98%</div>
+            <p class="text-xl">Satisfacción del Cliente</p>
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="400">
+            <div class="text-5xl font-bold mb-2">24/7</div>
+            <p class="text-xl">Soporte Técnico</p>
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="500">
+            <div class="text-5xl font-bold mb-2">5+</div>
+            <p class="text-xl">Años de Experiencia</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA flotante -->
+    <a
+      href="/src/pages/main/contacto.html"
+      class="fixed bottom-8 right-8 z-50 bg-blue-600 hover:bg-blue-400 text-white rounded-full shadow-2xl p-5 flex items-center gap-2 animate-bounce"
+      title="Contáctanos"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        class="w-7 h-7"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M21 10.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7A8.38 8.38 0 013 13.5c0-1.61.48-3.11 1.3-4.4a1 1 0 011.4-.3l2.1 1.2a1 1 0 01.4 1.3c-.2.5-.3 1-.3 1.5a5.5 5.5 0 005.5 5.5c.5 0 1-.1 1.5-.3a1 1 0 011.3.4l1.2 2.1a1 1 0 01-.3 1.4z"
+        />
+      </svg>
+      <span class="hidden md:inline font-bold">Contáctanos</span>
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <script>
+      AOS.init({ once: true });
+    </script>
+  </body>
+</html>
