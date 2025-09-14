@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Los Líderes Confían en Nosotros - Nexora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"
+      defer
+    ></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Include global header -->
+    <div id="header-placeholder"></div>
+    <script>
+      fetch("/assets/templates/header.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("header-placeholder").innerHTML = html;
+        });
+    </script>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 py-16" data-aos="fade-up">
+      <h1 class="text-4xl font-bold text-[#16194a] mb-8">
+        Los Líderes Confían en Nosotros
+      </h1>
+      <section class="space-y-8 text-gray-700 text-lg leading-relaxed">
+        <p>
+          Contamos con el respaldo y la confianza de líderes en la industria que
+          avalan la calidad y profesionalismo de nuestro trabajo.
+        </p>
+        <h2 class="text-2xl font-semibold text-blue-700">
+          Respaldo de la Industria
+        </h2>
+        <p>
+          Hemos sido reconocidos por organizaciones y expertos del sector por
+          nuestra innovación y excelencia en desarrollo de software.
+        </p>
+        <h2 class="text-2xl font-semibold text-blue-700">Casos de Éxito</h2>
+        <p>
+          Nuestros proyectos han ayudado a líderes empresariales a transformar
+          sus operaciones y alcanzar sus objetivos estratégicos.
+        </p>
+        <h2 class="text-2xl font-semibold text-blue-700">
+          Compromiso con la Calidad
+        </h2>
+        <p>
+          Mantenemos altos estándares de calidad y comunicación para asegurar la
+          satisfacción total de nuestros clientes.
+        </p>
+        <div class="mt-10">
+          <a
+            href="../../../index.html#como-cumplimos"
+            class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
+            >Volver a Cómo cumplimos con cada sprint</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="bg-[#16194a] text-gray-200 py-12 text-center mt-20 border-t-2 border-blue-400/30"
+      data-aos="fade-in"
+    >
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-4"
+      >
+        <div class="mb-4 md:mb-0" data-aos="fade-up" data-aos-delay="100">
+          <p class="font-bold text-lg">
+            &copy; 2025 Nexora. Todos los derechos reservados.
+          </p>
+          <p class="text-sm text-gray-400 mt-1">
+            Desarrollo de software profesional en Ecuador y Latinoamérica.
+          </p>
+        </div>
+        <div class="flex space-x-6" data-aos="fade-up" data-aos-delay="200">
+          <a
+            href="#"
+            class="hover:text-blue-400 transition-all duration-300 hover:scale-110"
+            ><img
+              src="https://img.icons8.com/ios-filled/32/ffffff/linkedin.png"
+              class="inline"
+              alt="LinkedIn"
+          /></a>
+          <a
+            href="#"
+            class="hover:text-blue-400 transition-all duration-300 hover:scale-110"
+            ><img
+              src="https://img.icons8.com/ios-filled/32/ffffff/github.png"
+              class="inline"
+              alt="GitHub"
+          /></a>
+          <a
+            href="#"
+            class="hover:text-blue-400 transition-all duration-300 hover:scale-110"
+            ><img
+              src="https://img.icons8.com/ios-filled/32/ffffff/twitterx.png"
+              class="inline"
+              alt="Twitter"
+          /></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+      AOS.init({ once: true });
+    </script>
+  </body>
+</html>

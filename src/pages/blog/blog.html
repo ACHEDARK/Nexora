@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - Nexora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Include global header -->
+    <div id="header-placeholder"></div>
+    <script>
+      fetch("/assets/templates/header.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("header-placeholder").innerHTML = html;
+          if (typeof addMobileMenuListener === "function") {
+            addMobileMenuListener();
+          }
+        });
+    </script>
+
+    <section class="py-28 bg-white" data-aos="fade-in">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2
+          class="text-5xl font-extrabold mb-8 text-[#16194a] tracking-tight"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          Blog de Nexora
+        </h2>
+        <p
+          class="text-2xl mb-8 text-gray-700 font-light max-w-3xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          Mantente al día con las últimas tendencias en desarrollo de software,
+          IA y tecnología.
+        </p>
+        <!-- Lista de posts -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+          <!-- Post 1 -->
+          <article class="blog-card" data-aos="fade-up" data-aos-delay="300">
+            <img
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"
+              class="w-full h-48 object-cover"
+              alt="Inteligencia Artificial en el Desarrollo de Software"
+            />
+            <div class="blog-card-content">
+              <h3 class="blog-card-title">
+                La Revolución de la IA en el Desarrollo de Software
+              </h3>
+              <p class="blog-card-excerpt">
+                Descubre cómo la inteligencia artificial está transformando la
+                forma en que desarrollamos software, desde la automatización del
+                código hasta la predicción de bugs.
+              </p>
+              <a href="post.html" class="blog-read-more">Leer más</a>
+            </div>
+          </article>
+
+          <!-- Post 2 -->
+          <article class="blog-card" data-aos="fade-up" data-aos-delay="400">
+            <img
+              src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=400&q=80"
+              class="w-full h-48 object-cover"
+              alt="Desarrollo Web Moderno"
+            />
+            <div class="blog-card-content">
+              <h3 class="blog-card-title">Tendencias 2025 en Desarrollo Web</h3>
+              <p class="blog-card-excerpt">
+                Exploramos las últimas tecnologías y frameworks que están
+                definiendo el futuro del desarrollo web: React Server
+                Components, WebAssembly y más.
+              </p>
+              <a href="post.html" class="blog-read-more">Leer más</a>
+            </div>
+          </article>
+
+          <!-- Post 3 -->
+          <article class="blog-card" data-aos="fade-up" data-aos-delay="500">
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80"
+              class="w-full h-48 object-cover"
+              alt="Análisis de Datos"
+            />
+            <div class="blog-card-content">
+              <h3 class="blog-card-title">
+                Big Data: Transformando Decisiones Empresariales
+              </h3>
+              <p class="blog-card-excerpt">
+                Cómo las empresas están aprovechando el poder del big data para
+                tomar decisiones más inteligentes y mejorar su competitividad en
+                el mercado.
+              </p>
+              <a href="post.html" class="blog-read-more">Leer más</a>
+            </div>
+          </article>
+
+          <!-- Post 4 -->
+          <article class="blog-card" data-aos="fade-up" data-aos-delay="600">
+            <img
+              src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=400&q=80"
+              class="w-full h-48 object-cover"
+              alt="Desarrollo Móvil"
+            />
+            <div class="blog-card-content">
+              <h3 class="blog-card-title">
+                Apps Móviles: De la Idea a la Tienda
+              </h3>
+              <p class="blog-card-excerpt">
+                Guía completa para desarrollar aplicaciones móviles exitosas,
+                desde el diseño UX/UI hasta la publicación en las tiendas de
+                aplicaciones.
+              </p>
+              <a href="post.html" class="blog-read-more">Leer más</a>
+            </div>
+          </article>
+
+          <!-- Post 5 -->
+          <article class="blog-card" data-aos="fade-up" data-aos-delay="700">
+            <img
+              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80"
+              class="w-full h-48 object-cover"
+              alt="Cloud Computing"
+            />
+            <div class="blog-card-content">
+              <h3 class="blog-card-title">
+                Cloud Computing: Escalabilidad y Eficiencia
+              </h3>
+              <p class="blog-card-excerpt">
+                Descubre los beneficios del cloud computing para empresas de
+                todos los tamaños y cómo migrar tus aplicaciones a la nube de
+                manera segura.
+              </p>
+              <a href="post.html" class="blog-read-more">Leer más</a>
+            </div>
+          </article>
+
+          <!-- Post 6 -->
+          <article class="blog-card" data-aos="fade-up" data-aos-delay="800">
+            <img
+              src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=400&q=80"
+              class="w-full h-48 object-cover"
+              alt="Ciberseguridad"
+            />
+            <div class="blog-card-content">
+              <h3 class="blog-card-title">Ciberseguridad en la Era Digital</h3>
+              <p class="blog-card-excerpt">
+                Protege tus aplicaciones y datos con las mejores prácticas de
+                ciberseguridad. Aprende sobre amenazas emergentes y cómo
+                mitigarlas.
+              </p>
+              <a href="post.html" class="blog-read-more">Leer más</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <script>
+      AOS.init({ once: true });
+
+      // Blog posts data
+      const blogPosts = [
+        {
+          id: 1,
+          titulo: "La Revolución de la IA en el Desarrollo de Software",
+          contenido:
+            "La inteligencia artificial está transformando fundamentalmente la forma en que desarrollamos software. Desde la automatización del código con herramientas como GitHub Copilot hasta la predicción de bugs mediante análisis predictivo, la IA se ha convertido en un aliado indispensable para los desarrolladores modernos.\n\nEn Nexora, integramos IA en todos nuestros procesos de desarrollo para aumentar la eficiencia y reducir errores. Nuestros equipos utilizan machine learning para optimizar el rendimiento de aplicaciones, automatizar pruebas y mejorar la experiencia del usuario.\n\nEl futuro del desarrollo de software está aquí, y está potenciado por IA.",
+          autor: "Equipo Nexora",
+          fecha: "15 de enero, 2025",
+          categoria: "Inteligencia Artificial",
+          urlFoto:
+            "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
+          comentarios: [],
+        },
+        {
+          id: 2,
+          titulo: "Tendencias 2025 en Desarrollo Web",
+          contenido:
+            "El desarrollo web continúa evolucionando a un ritmo vertiginoso. En 2025, vemos el auge de tecnologías como React Server Components, que permiten renderizar componentes en el servidor para mejorar el rendimiento, y WebAssembly, que trae aplicaciones de alto rendimiento al navegador.\n\nEn Nexora, adoptamos estas tecnologías para crear experiencias web excepcionales. Nuestros proyectos utilizan las últimas versiones de frameworks como Next.js 15, con su nuevo App Router, y herramientas de edge computing para latencias mínimas.\n\nLa web está más viva que nunca, y nosotros estamos a la vanguardia.",
+          autor: "María González",
+          fecha: "22 de enero, 2025",
+          categoria: "Desarrollo Web",
+          urlFoto:
+            "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&q=80",
+          comentarios: [],
+        },
+        {
+          id: 3,
+          titulo: "Big Data: Transformando Decisiones Empresariales",
+          contenido:
+            "El big data ha dejado de ser una tendencia para convertirse en una necesidad estratégica para las empresas modernas. La capacidad de procesar y analizar enormes volúmenes de datos en tiempo real está revolucionando la toma de decisiones.\n\nEn Nexora, ayudamos a las empresas a implementar arquitecturas de datos escalables utilizando tecnologías como Apache Spark, Kafka y bases de datos NoSQL. Nuestras soluciones de business intelligence permiten a los ejecutivos tomar decisiones basadas en datos precisos y actualizados.\n\nEl futuro pertenece a las empresas data-driven, y nosotros las ayudamos a llegar allí.",
+          autor: "Carlos Rodríguez",
+          fecha: "28 de enero, 2025",
+          categoria: "Análisis de Datos",
+          urlFoto:
+            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+          comentarios: [],
+        },
+        {
+          id: 4,
+          titulo: "Apps Móviles: De la Idea a la Tienda",
+          contenido:
+            "Desarrollar una aplicación móvil exitosa requiere más que código: necesita una estrategia clara, diseño excepcional y una comprensión profunda de la experiencia del usuario.\n\nEn Nexora, guiamos a nuestros clientes desde la concepción inicial hasta la publicación en las tiendas de aplicaciones. Utilizamos Flutter para desarrollo multiplataforma, garantizando consistencia entre iOS y Android, y implementamos las mejores prácticas de UX/UI para crear aplicaciones intuitivas y atractivas.\n\nCada app que lanzamos no solo funciona bien, sino que deleita a sus usuarios.",
+          autor: "Ana López",
+          fecha: "5 de febrero, 2025",
+          categoria: "Desarrollo Móvil",
+          urlFoto:
+            "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
+          comentarios: [],
+        },
+        {
+          id: 5,
+          titulo: "Cloud Computing: Escalabilidad y Eficiencia",
+          contenido:
+            "La nube ha democratizado el acceso a recursos de computación ilimitados, permitiendo a empresas de todos los tamaños escalar sus operaciones de manera eficiente.\n\nEn Nexora, diseñamos arquitecturas cloud-native utilizando servicios de AWS, Azure y Google Cloud. Nuestras implementaciones incluyen contenedores con Kubernetes, serverless computing y estrategias de multi-cloud para máxima resiliencia.\n\nLa nube no es solo una tecnología: es una forma de pensar en la infraestructura que permite innovación rápida y crecimiento sostenible.",
+          autor: "Javier Martínez",
+          fecha: "12 de febrero, 2025",
+          categoria: "Cloud Computing",
+          urlFoto:
+            "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+          comentarios: [],
+        },
+        {
+          id: 6,
+          titulo: "Ciberseguridad en la Era Digital",
+          contenido:
+            "Con el aumento de ciberataques sofisticados, la ciberseguridad se ha convertido en una prioridad estratégica para todas las organizaciones.\n\nEn Nexora, implementamos defensas en profundidad que incluyen encriptación de datos, autenticación multifactor, monitoreo continuo y respuesta a incidentes. Nuestras soluciones de seguridad están diseñadas para proteger tanto aplicaciones web como móviles, y cumplen con los estándares más exigentes como GDPR y SOC 2.\n\nLa seguridad no es un producto, es un proceso continuo que integramos en cada etapa del desarrollo.",
+          autor: "Laura Sánchez",
+          fecha: "19 de febrero, 2025",
+          categoria: "Ciberseguridad",
+          urlFoto:
+            "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80",
+          comentarios: [],
+        },
+      ];
+
+      // Handle "Leer más" clicks
+      document.addEventListener("DOMContentLoaded", function () {
+        const readMoreButtons = document.querySelectorAll(".blog-read-more");
+
+        readMoreButtons.forEach((button, index) => {
+          button.addEventListener("click", function (e) {
+            e.preventDefault();
+            const post = blogPosts[index];
+            localStorage.setItem("postSeleccionado", JSON.stringify(post));
+            window.location.href = "post.html";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
