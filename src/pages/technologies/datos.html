@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Análisis de Datos - Nexora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"
+      defer
+    ></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link href="../../../assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Include global header -->
+    <div id="header-placeholder"></div>
+    <script>
+      fetch("/assets/templates/header.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("header-placeholder").innerHTML = html;
+          if (typeof addMobileMenuListener === "function") {
+            addMobileMenuListener();
+          }
+        });
+    </script>
+
+    <!-- Fix duplicate Contactanos button -->
+    <style>
+      .contactanos-duplicate {
+        display: none !important;
+      }
+    </style>
+
+    <!-- Hero Section -->
+    <section
+      class="relative bg-[#1b2a6a] text-white min-h-[60vh] flex items-center overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-[#16194a]/80 via-blue-900/60 to-indigo-900/80 z-10"
+      ></div>
+      <div
+        class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between w-full relative z-10"
+      >
+        <div class="md:w-1/2 space-y-6">
+          <h1 class="text-5xl font-semibold leading-tight max-w-lg">
+            Análisis de Datos
+          </h1>
+          <p class="uppercase font-bold tracking-widest text-blue-400">
+            Transformando datos en decisiones inteligentes
+          </p>
+          <p class="max-w-md text-gray-300 leading-relaxed">
+            Convertimos grandes volúmenes de datos en insights accionables que
+            impulsan el crecimiento empresarial y optimizan la toma de
+            decisiones estratégicas.
+          </p>
+        </div>
+        <div class="md:w-1/2 relative mt-12 md:mt-0">
+          <img
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
+            class="rounded-2xl shadow-2xl max-w-lg mx-auto"
+            alt="Análisis de Datos"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content with Lateral Menu -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-12">
+        <!-- Lateral Menu -->
+        <nav
+          class="md:w-1/4 border-l-4 border-blue-500 sticky top-24 h-fit hidden md:block"
+        >
+          <h3 class="text-xl font-bold text-blue-900 mb-6">
+            Servicios de Datos
+          </h3>
+          <ul class="space-y-3 text-gray-700 font-semibold">
+            <li>
+              <a
+                href="#data-analytics"
+                class="datos-menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300 text-blue-600 bg-blue-50"
+                data-target="data-analytics"
+              >
+                Data Analytics
+              </a>
+            </li>
+            <li>
+              <a
+                href="#business-intelligence"
+                class="datos-menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300"
+                data-target="business-intelligence"
+              >
+                Business Intelligence
+              </a>
+            </li>
+            <li>
+              <a
+                href="#data-warehousing"
+                class="datos-menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300"
+                data-target="data-warehousing"
+              >
+                Data Warehousing
+              </a>
+            </li>
+            <li>
+              <a
+                href="#data-visualization"
+                class="datos-menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300"
+                data-target="data-visualization"
+              >
+                Visualización de Datos
+              </a>
+            </li>
+            <li>
+              <a
+                href="#predictive-modeling"
+                class="datos-menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300"
+                data-target="predictive-modeling"
+              >
+                Modelado Predictivo
+              </a>
+            </li>
+            <li>
+              <a
+                href="#data-integration"
+                class="datos-menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300"
+                data-target="data-integration"
+              >
+                Integración de Datos
+              </a>
+            </li>
+            <li>
+              <a
+                href="#data-governance"
+                class="datos-menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300"
+                data-target="data-governance"
+              >
+                Gobernanza de Datos
+              </a>
+            </li>
+            <li>
+              <a
+                href="#data-consulting"
+                class="datos-menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300"
+                data-target="data-consulting"
+              >
+                Consultoría en Datos
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Content Area -->
+        <div
+          id="datos-content-container"
+          class="md:w-3/4 text-gray-800 max-h-screen overflow-y-auto"
+        >
+          <!-- Data Analytics -->
+          <div
+            id="data-analytics"
+            class="datos-content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-blue-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Data Analytics"
+              />
+              <h3 class="text-3xl font-bold text-blue-900">Data Analytics</h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Utilizamos técnicas avanzadas de análisis de datos para extraer
+              patrones, tendencias y insights valiosos que ayudan a las empresas
+              a tomar decisiones informadas y estratégicas.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-blue-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-blue-800 mb-3">
+                  Análisis Descriptivo
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-2">
+                  <li>• Estadísticas descriptivas</li>
+                  <li>• Análisis de tendencias</li>
+                  <li>• Segmentación de datos</li>
+                  <li>• Reportes ejecutivos</li>
+                </ul>
+              </div>
+              <div class="bg-green-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-green-800 mb-3">
+                  Análisis Diagnóstico
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-2">
+                  <li>• Análisis de correlación</li>
+                  <li>• Análisis de varianza</li>
+                  <li>• Pruebas de hipótesis</li>
+                  <li>• Análisis de causa raíz</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Business Intelligence -->
+          <div
+            id="business-intelligence"
+            class="datos-content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-green-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Business Intelligence"
+              />
+              <h3 class="text-3xl font-bold text-green-900">
+                Business Intelligence
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Implementamos soluciones de BI que transforman datos crudos en
+              información estratégica, permitiendo a las empresas monitorear su
+              rendimiento y tomar decisiones basadas en datos.
+            </p>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="bg-green-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-green-800 mb-3">
+                  Dashboards Interactivos
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Visualizaciones dinámicas y personalizables para diferentes
+                  roles en la organización
+                </p>
+              </div>
+              <div class="bg-blue-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-blue-800 mb-3">KPI y Métricas</h4>
+                <p class="text-sm text-gray-600">
+                  Definición e implementación de indicadores clave de
+                  rendimiento
+                </p>
+              </div>
+              <div class="bg-purple-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-purple-800 mb-3">
+                  Reportes Automatizados
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Generación automática de reportes periódicos y alertas
+                  inteligentes
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data Warehousing -->
+          <div
+            id="data-warehousing"
+            class="datos-content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-purple-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Data Warehousing"
+              />
+              <h3 class="text-3xl font-bold text-purple-900">
+                Data Warehousing
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Diseñamos y implementamos almacenes de datos escalables y
+              eficientes que centralizan información de múltiples fuentes para
+              análisis integrales y reporting estratégico.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-purple-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-purple-800 mb-3">
+                  Arquitecturas Modernas
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Data Lakes</li>
+                  <li>• Data Warehouses</li>
+                  <li>• Lakehouses</li>
+                  <li>• Arquitecturas híbridas</li>
+                </ul>
+              </div>
+              <div class="bg-blue-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-blue-800 mb-3">Tecnologías</h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Amazon Redshift</li>
+                  <li>• Google BigQuery</li>
+                  <li>• Snowflake</li>
+                  <li>• Azure Synapse</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data Visualization -->
+          <div
+            id="data-visualization"
+            class="datos-content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-red-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Data Visualization"
+              />
+              <h3 class="text-3xl font-bold text-red-900">
+                Visualización de Datos
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Creamos visualizaciones impactantes y intuitivas que hacen que los
+              datos complejos sean fáciles de entender y actuar, facilitando la
+              comunicación de insights a diferentes audiencias.
+            </p>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="bg-red-50 p-4 rounded-lg text-center">
+                <h4 class="font-semibold text-red-800 mb-2">
+                  Gráficos Interactivos
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Visualizaciones dinámicas con filtros y drill-down
+                </p>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg text-center">
+                <h4 class="font-semibold text-blue-800 mb-2">Infografías</h4>
+                <p class="text-sm text-gray-600">
+                  Representaciones visuales de datos complejos
+                </p>
+              </div>
+              <div class="bg-green-50 p-4 rounded-lg text-center">
+                <h4 class="font-semibold text-green-800 mb-2">
+                  Storytelling con Datos
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Narrativas visuales que comunican insights
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Predictive Modeling -->
+          <div
+            id="predictive-modeling"
+            class="datos-content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-yellow-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Predictive Modeling"
+              />
+              <h3 class="text-3xl font-bold text-yellow-900">
+                Modelado Predictivo
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Desarrollamos modelos predictivos avanzados que anticipan
+              tendencias futuras, optimizan procesos y ayudan a las empresas a
+              prepararse para escenarios diversos.
+            </p>
+            <div class="bg-yellow-50 p-6 rounded-lg">
+              <h4 class="font-semibold text-yellow-800 mb-4">
+                Aplicaciones Empresariales
+              </h4>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 class="font-medium text-gray-700 mb-2">
+                    Ventas y Marketing
+                  </h5>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Predicción de demanda</li>
+                    <li>• Segmentación de clientes</li>
+                    <li>• Churn prediction</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="font-medium text-gray-700 mb-2">Operaciones</h5>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Optimización de inventarios</li>
+                    <li>• Mantenimiento predictivo</li>
+                    <li>• Forecasting de recursos</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data Integration -->
+          <div
+            id="data-integration"
+            class="datos-content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-indigo-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Data Integration"
+              />
+              <h3 class="text-3xl font-bold text-indigo-900">
+                Integración de Datos
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Diseñamos e implementamos pipelines de datos robustos que conectan
+              múltiples fuentes de información, asegurando calidad, consistencia
+              y accesibilidad de los datos.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-indigo-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-indigo-800 mb-3">
+                  ETL/ELT Pipelines
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-2">
+                  <li>• Extracción de datos</li>
+                  <li>• Transformación y limpieza</li>
+                  <li>• Carga en destinos</li>
+                  <li>• Orquestación de flujos</li>
+                </ul>
+              </div>
+              <div class="bg-blue-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-blue-800 mb-3">Conectores</h4>
+                <ul class="text-sm text-gray-600 space-y-2">
+                  <li>• APIs y webhooks</li>
+                  <li>• Bases de datos</li>
+                  <li>• Sistemas legacy</li>
+                  <li>• Cloud services</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data Governance -->
+          <div
+            id="data-governance"
+            class="datos-content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-teal-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Data Governance"
+              />
+              <h3 class="text-3xl font-bold text-teal-900">
+                Gobernanza de Datos
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Establecemos marcos de gobernanza que aseguran la calidad,
+              seguridad y cumplimiento normativo de los datos, creando confianza
+              en el uso de la información.
+            </p>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="bg-teal-50 p-4 rounded-lg text-center">
+                <h4 class="font-semibold text-teal-800 mb-2">
+                  Calidad de Datos
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Validación y limpieza continua
+                </p>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg text-center">
+                <h4 class="font-semibold text-blue-800 mb-2">Seguridad</h4>
+                <p class="text-sm text-gray-600">
+                  Protección y privacidad de datos
+                </p>
+              </div>
+              <div class="bg-green-50 p-4 rounded-lg text-center">
+                <h4 class="font-semibold text-green-800 mb-2">Cumplimiento</h4>
+                <p class="text-sm text-gray-600">Normativas GDPR, LGPD, etc.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data Consulting -->
+          <div
+            id="data-consulting"
+            class="datos-content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-pink-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Data Consulting"
+              />
+              <h3 class="text-3xl font-bold text-pink-900">
+                Consultoría en Datos
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Ofrecemos consultoría especializada para ayudar a las
+              organizaciones a definir estrategias de datos, identificar
+              oportunidades y maximizar el valor de sus activos de información.
+            </p>
+            <div class="bg-pink-50 p-6 rounded-lg">
+              <h4 class="font-semibold text-pink-800 mb-4">
+                Nuestros Servicios de Consultoría
+              </h4>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 class="font-medium text-gray-700 mb-2">
+                    Estrategia de Datos
+                  </h5>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Asesoramiento en arquitectura</li>
+                    <li>• Roadmap de transformación digital</li>
+                    <li>• Evaluación de madurez analítica</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="font-medium text-gray-700 mb-2">Optimización</h5>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Mejora de procesos existentes</li>
+                    <li>• Implementación de mejores prácticas</li>
+                    <li>• Capacitación de equipos</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-[#16194a] text-gray-200 py-12 text-center mt-10 border-t-2 border-blue-400/30"
+      data-aos="fade-in"
+    >
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-4"
+      >
+        <div class="mb-4 md:mb-0" data-aos="fade-up" data-aos-delay="100">
+          <p class="font-bold text-lg">
+            &copy; 2025 Nexora. Todos los derechos reservados.
+          </p>
+          <p class="text-sm text-gray-400 mt-1">
+            Desarrollo de software profesional en Ecuador y Latinoamérica.
+          </p>
+        </div>
+        <div class="flex space-x-6" data-aos="fade-up" data-aos-delay="200">
+          <a
+            href="#"
+            class="hover:text-blue-400 transition-all duration-300 hover:scale-110"
+            ><img
+              src="https://img.icons8.com/ios-filled/32/ffffff/linkedin.png"
+              class="inline"
+              alt="LinkedIn"
+          /></a>
+          <a
+            href="#"
+            class="hover:text-blue-400 transition-all duration-300 hover:scale-110"
+            ><img
+              src="https://img.icons8.com/ios-filled/32/ffffff/github.png"
+              class="inline"
+              alt="GitHub"
+          /></a>
+          <a
+            href="#"
+            class="hover:text-blue-400 transition-all duration-300 hover:scale-110"
+            ><img
+              src="https://img.icons8.com/ios-filled/32/ffffff/twitterx.png"
+              class="inline"
+              alt="Twitter"
+          /></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="../../../assets/js/script.js"></script>
+    <script>
+      AOS.init({ once: true });
+    </script>
+  </body>
+</html>
