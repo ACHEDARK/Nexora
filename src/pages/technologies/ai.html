@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inteligencia Artificial - Nexora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"
+      defer
+    ></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link href="../../../assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Include global header -->
+    <div id="header-placeholder"></div>
+    <script>
+      fetch("/assets/templates/header.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("header-placeholder").innerHTML = html;
+          if (typeof addMobileMenuListener === "function") {
+            addMobileMenuListener();
+          }
+        });
+    </script>
+
+    <!-- Fix duplicate Contactanos button -->
+    <style>
+      .contactanos-duplicate {
+        display: none !important;
+      }
+    </style>
+
+    <!-- Hero Section -->
+    <section
+      class="relative bg-[#1b2a6a] text-white min-h-[60vh] flex items-center overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-[#16194a]/80 via-blue-900/60 to-indigo-900/80 z-10"
+      ></div>
+      <div
+        class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between w-full relative z-10"
+      >
+        <div class="md:w-1/2 space-y-6">
+          <h1 class="text-5xl font-semibold leading-tight max-w-lg">
+            Inteligencia Artificial
+          </h1>
+          <p class="uppercase font-bold tracking-widest text-blue-400">
+            Potenciando el futuro con IA
+          </p>
+          <p class="max-w-md text-gray-300 leading-relaxed">
+            Desarrollamos soluciones de inteligencia artificial avanzadas que
+            transforman procesos empresariales, automatizan tareas complejas y
+            generan insights predictivos para tomar mejores decisiones.
+          </p>
+        </div>
+        <div class="md:w-1/2 relative mt-12 md:mt-0">
+          <img
+            src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80"
+            class="rounded-2xl shadow-2xl max-w-lg mx-auto"
+            alt="Inteligencia Artificial"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content with Lateral Menu -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-12">
+        <!-- Lateral Menu -->
+        <nav
+          class="md:w-1/4 border-l-4 border-blue-500 sticky top-24 h-fit hidden md:block"
+        >
+          <h3 class="text-xl font-bold text-blue-900 mb-6">Servicios de IA</h3>
+          <ul class="space-y-3 text-gray-700 font-semibold">
+            <li>
+              <a
+                href="#machine-learning"
+                class="ai-menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300 text-blue-600 bg-blue-50"
+                data-target="machine-learning"
+              >
+                Machine Learning
+              </a>
+            </li>
+            <li>
+              <a
+                href="#deep-learning"
+                class="ai-menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300"
+                data-target="deep-learning"
+              >
+                Deep Learning
+              </a>
+            </li>
+            <li>
+              <a
+                href="#nlp"
+                class="ai-menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300"
+                data-target="nlp"
+              >
+                Procesamiento de Lenguaje Natural
+              </a>
+            </li>
+            <li>
+              <a
+                href="#computer-vision"
+                class="ai-menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300"
+                data-target="computer-vision"
+              >
+                Visión por Computadora
+              </a>
+            </li>
+            <li>
+              <a
+                href="#predictive-analytics"
+                class="ai-menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300"
+                data-target="predictive-analytics"
+              >
+                Analytics Predictivo
+              </a>
+            </li>
+            <li>
+              <a
+                href="#chatbots"
+                class="ai-menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300"
+                data-target="chatbots"
+              >
+                Chatbots y Asistentes Virtuales
+              </a>
+            </li>
+            <li>
+              <a
+                href="#automation"
+                class="ai-menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300"
+                data-target="automation"
+              >
+                Automatización Inteligente
+              </a>
+            </li>
+            <li>
+              <a
+                href="#ai-consulting"
+                class="ai-menu-link block px-3 py-2 rounded-l-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300"
+                data-target="ai-consulting"
+              >
+                Consultoría en IA
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Content Area -->
+        <div
+          id="ai-content-container"
+          class="md:w-3/4 text-gray-800 max-h-screen overflow-y-auto"
+        >
+          <!-- Machine Learning -->
+          <div
+            id="machine-learning"
+            class="ai-content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-blue-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Machine Learning"
+              />
+              <h3 class="text-3xl font-bold text-blue-900">Machine Learning</h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Implementamos algoritmos de aprendizaje automático que permiten a
+              las máquinas aprender patrones complejos y tomar decisiones
+              inteligentes sin ser programadas explícitamente para cada
+              escenario.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-blue-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-blue-800 mb-3">
+                  Algoritmos Supervisados
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-2">
+                  <li>• Regresión Lineal y Logística</li>
+                  <li>• Árboles de Decisión</li>
+                  <li>• Random Forest</li>
+                  <li>• Support Vector Machines</li>
+                  <li>• Redes Neuronales</li>
+                </ul>
+              </div>
+              <div class="bg-green-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-green-800 mb-3">
+                  Algoritmos No Supervisados
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-2">
+                  <li>• Clustering (K-means, DBSCAN)</li>
+                  <li>• Reducción de Dimensionalidad</li>
+                  <li>• Análisis de Componentes Principales</li>
+                  <li>• Autoencoders</li>
+                </ul>
+              </div>
+            </div>
+            <div class="mt-6 bg-purple-50 p-6 rounded-lg">
+              <h4 class="font-semibold text-purple-800 mb-3">Casos de Uso</h4>
+              <div class="grid md:grid-cols-3 gap-4">
+                <div class="text-center">
+                  <p class="text-sm font-medium text-gray-700">
+                    Predicción de Ventas
+                  </p>
+                  <p class="text-xs text-gray-500 mt-1">
+                    Análisis de tendencias y forecasting
+                  </p>
+                </div>
+                <div class="text-center">
+                  <p class="text-sm font-medium text-gray-700">
+                    Detección de Fraude
+                  </p>
+                  <p class="text-xs text-gray-500 mt-1">
+                    Identificación de patrones anómalos
+                  </p>
+                </div>
+                <div class="text-center">
+                  <p class="text-sm font-medium text-gray-700">
+                    Segmentación de Clientes
+                  </p>
+                  <p class="text-xs text-gray-500 mt-1">
+                    Clustering basado en comportamiento
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deep Learning -->
+          <div
+            id="deep-learning"
+            class="ai-content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-green-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Deep Learning"
+              />
+              <h3 class="text-3xl font-bold text-green-900">Deep Learning</h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Utilizamos redes neuronales profundas para resolver problemas
+              complejos que requieren procesamiento de grandes volúmenes de
+              datos y reconocimiento de patrones sofisticados.
+            </p>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="bg-green-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-green-800 mb-3">
+                  Redes Convolucionales (CNN)
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Especializadas en procesamiento de imágenes y visión por
+                  computadora
+                </p>
+              </div>
+              <div class="bg-blue-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-blue-800 mb-3">
+                  Redes Recurrentes (RNN/LSTM)
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Ideales para secuencias temporales y procesamiento de lenguaje
+                  natural
+                </p>
+              </div>
+              <div class="bg-purple-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-purple-800 mb-3">
+                  Redes Generativas (GAN)
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Para generación de contenido nuevo y realista
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- NLP -->
+          <div
+            id="nlp"
+            class="ai-content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-purple-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="NLP"
+              />
+              <h3 class="text-3xl font-bold text-purple-900">
+                Procesamiento de Lenguaje Natural
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Desarrollamos sistemas capaces de comprender, interpretar y
+              generar lenguaje humano natural, permitiendo interacciones más
+              naturales entre humanos y máquinas.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-purple-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-purple-800 mb-3">
+                  Análisis de Sentimiento
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Clasificación de opiniones</li>
+                  <li>• Análisis de reseñas</li>
+                  <li>• Monitoreo de redes sociales</li>
+                </ul>
+              </div>
+              <div class="bg-blue-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-blue-800 mb-3">
+                  Generación de Texto
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Resúmenes automáticos</li>
+                  <li>• Traducción automática</li>
+                  <li>• Generación de contenido</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Computer Vision -->
+          <div
+            id="computer-vision"
+            class="ai-content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-red-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Computer Vision"
+              />
+              <h3 class="text-3xl font-bold text-red-900">
+                Visión por Computadora
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Implementamos sistemas de visión artificial que permiten a las
+              máquinas interpretar y comprender el contenido visual del mundo
+              real.
+            </p>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="bg-red-50 p-4 rounded-lg text-center">
+                <h4 class="font-semibold text-red-800 mb-2">
+                  Reconocimiento Facial
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Identificación y verificación de personas
+                </p>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg text-center">
+                <h4 class="font-semibold text-blue-800 mb-2">
+                  Detección de Objetos
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Identificación automática de elementos
+                </p>
+              </div>
+              <div class="bg-green-50 p-4 rounded-lg text-center">
+                <h4 class="font-semibold text-green-800 mb-2">
+                  Análisis de Imágenes
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Extracción de información visual
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Predictive Analytics -->
+          <div
+            id="predictive-analytics"
+            class="ai-content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-yellow-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Predictive Analytics"
+              />
+              <h3 class="text-3xl font-bold text-yellow-900">
+                Analytics Predictivo
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Utilizamos técnicas avanzadas de análisis predictivo para
+              anticipar tendencias futuras y tomar decisiones proactivas basadas
+              en datos históricos.
+            </p>
+            <div class="bg-yellow-50 p-6 rounded-lg">
+              <h4 class="font-semibold text-yellow-800 mb-4">
+                Aplicaciones Empresariales
+              </h4>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 class="font-medium text-gray-700 mb-2">Finanzas</h5>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Predicción de precios de acciones</li>
+                    <li>• Análisis de riesgo crediticio</li>
+                    <li>• Detección de fraudes</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="font-medium text-gray-700 mb-2">Retail</h5>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Predicción de demanda</li>
+                    <li>• Optimización de inventarios</li>
+                    <li>• Recomendaciones personalizadas</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chatbots -->
+          <div
+            id="chatbots"
+            class="ai-content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-indigo-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Chatbots"
+              />
+              <h3 class="text-3xl font-bold text-indigo-900">
+                Chatbots y Asistentes Virtuales
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Creamos asistentes virtuales inteligentes que proporcionan soporte
+              24/7, mejoran la experiencia del cliente y automatizan procesos de
+              atención al cliente.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-indigo-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-indigo-800 mb-3">
+                  Tipos de Chatbots
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-2">
+                  <li>• Chatbots basados en reglas</li>
+                  <li>• Chatbots con IA conversacional</li>
+                  <li>• Chatbots híbridos</li>
+                  <li>• Voice bots y asistentes de voz</li>
+                </ul>
+              </div>
+              <div class="bg-blue-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-blue-800 mb-3">Integraciones</h4>
+                <ul class="text-sm text-gray-600 space-y-2">
+                  <li>• WhatsApp Business API</li>
+                  <li>• Facebook Messenger</li>
+                  <li>• Sitios web y aplicaciones</li>
+                  <li>• Sistemas CRM</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Automation -->
+          <div
+            id="automation"
+            class="ai-content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-teal-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="Automation"
+              />
+              <h3 class="text-3xl font-bold text-teal-900">
+                Automatización Inteligente
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Implementamos soluciones de automatización inteligente que
+              optimizan procesos empresariales, reducen costos operativos y
+              mejoran la eficiencia general.
+            </p>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="bg-teal-50 p-4 rounded-lg text-center">
+                <h4 class="font-semibold text-teal-800 mb-2">
+                  Procesos Empresariales
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Automatización de workflows complejos
+                </p>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg text-center">
+                <h4 class="font-semibold text-blue-800 mb-2">
+                  Atención al Cliente
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Resolución automática de consultas
+                </p>
+              </div>
+              <div class="bg-green-50 p-4 rounded-lg text-center">
+                <h4 class="font-semibold text-green-800 mb-2">
+                  Análisis de Datos
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Procesamiento automático de información
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Consulting -->
+          <div
+            id="ai-consulting"
+            class="ai-content-section bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-pink-500"
+          >
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=100&q=80"
+                class="w-16 h-16 rounded-full object-cover"
+                alt="AI Consulting"
+              />
+              <h3 class="text-3xl font-bold text-pink-900">
+                Consultoría en IA
+              </h3>
+            </div>
+            <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+              Ofrecemos consultoría especializada en inteligencia artificial
+              para ayudar a las empresas a identificar oportunidades, diseñar
+              estrategias y implementar soluciones de IA efectivas.
+            </p>
+            <div class="bg-pink-50 p-6 rounded-lg">
+              <h4 class="font-semibold text-pink-800 mb-4">
+                Nuestros Servicios de Consultoría
+              </h4>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 class="font-medium text-gray-700 mb-2">
+                    Evaluación y Estrategia
+                  </h5>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Análisis de madurez en IA</li>
+                    <li>• Identificación de casos de uso</li>
+                    <li>• Diseño de roadmap de IA</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="font-medium text-gray-700 mb-2">
+                    Implementación y Capacitación
+                  </h5>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Arquitectura de soluciones</li>
+                    <li>• Capacitación de equipos</li>
+                    <li>• Gobernanza de datos</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-[#16194a] text-gray-200 py-12 text-center mt-10 border-t-2 border-blue-400/30"
+      data-aos="fade-in"
+    >
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-4"
+      >
+        <div class="mb-4 md:mb-0" data-aos="fade-up" data-aos-delay="100">
+          <p class="font-bold text-lg">
+            &copy; 2025 Nexora. Todos los derechos reservados.
+          </p>
+          <p class="text-sm text-gray-400 mt-1">
+            Desarrollo de software profesional en Ecuador y Latinoamérica.
+          </p>
+        </div>
+        <div class="flex space-x-6" data-aos="fade-up" data-aos-delay="200">
+          <a
+            href="#"
+            class="hover:text-blue-400 transition-all duration-300 hover:scale-110"
+            ><img
+              src="https://img.icons8.com/ios-filled/32/ffffff/linkedin.png"
+              class="inline"
+              alt="LinkedIn"
+          /></a>
+          <a
+            href="#"
+            class="hover:text-blue-400 transition-all duration-300 hover:scale-110"
+            ><img
+              src="https://img.icons8.com/ios-filled/32/ffffff/github.png"
+              class="inline"
+              alt="GitHub"
+          /></a>
+          <a
+            href="#"
+            class="hover:text-blue-400 transition-all duration-300 hover:scale-110"
+            ><img
+              src="https://img.icons8.com/ios-filled/32/ffffff/twitterx.png"
+              class="inline"
+              alt="Twitter"
+          /></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="../../../assets/js/script.js"></script>
+    <script>
+      AOS.init({ once: true });
+    </script>
+  </body>
+</html>
