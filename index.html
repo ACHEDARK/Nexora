@@ -21,10 +21,56 @@
         .then((response) => response.text())
         .then((html) => {
           document.getElementById("header-placeholder").innerHTML = html;
-          if (typeof addMobileMenuListener === "function") {
-            addMobileMenuListener();
-          }
+          console.log('Header loaded, attempting to add mobile menu listener');
+          
+          // Try multiple approaches to ensure the mobile menu works
+          const tryAddListener = () => {
+            if (typeof addMobileMenuListener === "function") {
+              addMobileMenuListener();
+              console.log('Mobile menu listener added via function');
+            } else {
+              console.log('addMobileMenuListener function not available yet');
+            }
+          };
+          
+          // Try immediately
+          tryAddListener();
+          
+          // Try after a short delay
+          setTimeout(tryAddListener, 100);
+          
+          // Try after a longer delay
+          setTimeout(tryAddListener, 500);
         });
+    </script>
+
+    <!-- Inline mobile menu script as backup -->
+    <script>
+      // Backup mobile menu functionality
+      function initMobileMenu() {
+        const button = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        
+        if (button && menu) {
+          button.addEventListener('click', function() {
+            console.log('Mobile menu button clicked (backup script)');
+            const isHidden = menu.classList.contains('hidden');
+            if (isHidden) {
+              menu.classList.remove('hidden');
+              button.setAttribute('aria-expanded', 'true');
+            } else {
+              menu.classList.add('hidden');
+              button.setAttribute('aria-expanded', 'false');
+            }
+          });
+          console.log('Backup mobile menu listener added');
+        }
+      }
+      
+      // Try to initialize immediately and after delays
+      setTimeout(initMobileMenu, 100);
+      setTimeout(initMobileMenu, 500);
+      setTimeout(initMobileMenu, 1000);
     </script>
 
     <!-- Hero section -->

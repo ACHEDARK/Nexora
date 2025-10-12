@@ -6,13 +6,24 @@ import { collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/fir
 
 // Mobile menu toggle
 function toggleMobileMenu() {
+  console.log('toggleMobileMenu called');
   const menu = document.getElementById('mobile-menu');
   const button = document.getElementById('mobile-menu-button');
 
+  console.log('Menu element:', menu);
+  console.log('Button element:', button);
+
   if (menu && button) {
     const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    console.log('Current expanded state:', isExpanded);
+    
     button.setAttribute('aria-expanded', String(!isExpanded));
     menu.classList.toggle('hidden');
+    
+    console.log('Menu classes after toggle:', menu.className);
+    console.log('Button aria-expanded after toggle:', button.getAttribute('aria-expanded'));
+  } else {
+    console.error('Menu or button not found:', { menu, button });
   }
 }
 
@@ -198,7 +209,10 @@ function addMobileMenuListener() {
   const checkForButton = () => {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     if (mobileMenuButton) {
+      // Remove any existing event listeners to avoid duplicates
+      mobileMenuButton.removeEventListener('click', toggleMobileMenu);
       mobileMenuButton.addEventListener('click', toggleMobileMenu);
+      console.log('Mobile menu listener added successfully');
     } else {
       // If not found, check again after a short delay
       setTimeout(checkForButton, 100);
@@ -206,3 +220,10 @@ function addMobileMenuListener() {
   };
   checkForButton();
 }
+
+// Alternative approach: Use event delegation on document
+document.addEventListener('click', function(event) {
+  if (event.target && event.target.id === 'mobile-menu-button') {
+    toggleMobileMenu();
+  }
+});
