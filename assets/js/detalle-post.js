@@ -13,14 +13,101 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Contenido del artículo
     const articulo = document.querySelector('article.prose');
-    articulo.innerHTML = `
-                <h1 class="text-4xl font-extrabold text-[#16194a] mb-3">${post.titulo}</h1>
-                <div class="flex items-center text-gray-600 space-x-4 mb-4">
-                    <span>✍️ ${post.autor}</span>
-                    <span>📅 ${post.fecha}</span>
-                    <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs font-semibold">${post.categoria}</span>
+    
+    // Procesar markdown y convertir a HTML profesional
+    let contenidoHTML = post.contenido;
+    
+    // Limpiar símbolos de markdown sueltos y líneas vacías
+    contenidoHTML = contenidoHTML.replace(/^#+\s*$/gm, ''); // Eliminar líneas que solo contengan #, ##, ###, etc.
+    contenidoHTML = contenidoHTML.replace(/^\s*#+\s*$/gm, ''); // Eliminar líneas con espacios y solo #
+    contenidoHTML = contenidoHTML.replace(/\n\s*\n\s*\n/g, '\n\n'); // Limpiar múltiples saltos de línea
+    
+    // Procesar títulos principales (##) - debe tener texto después
+    contenidoHTML = contenidoHTML.replace(/^##\s+(.+)$/gm, '<h2 class="text-2xl font-bold text-[#16194a] mt-8 mb-4 pb-2 border-b border-gray-200">$1</h2>');
+    
+    // Procesar subtítulos (###) - debe tener texto después
+    contenidoHTML = contenidoHTML.replace(/^###\s+(.+)$/gm, '<h3 class="text-xl font-semibold text-[#16194a] mt-6 mb-3">$1</h3>');
+    
+    // Procesar texto en negrita
+    contenidoHTML = contenidoHTML.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-gray-800">$1</strong>');
+    
+    // Procesar texto en negrita seguido de dos puntos (para casos como "**Marketing y Ventas**:")
+    contenidoHTML = contenidoHTML.replace(/\*\*(.*?)\*\*:/g, '<strong class="font-semibold text-[#16194a] text-lg">$1:</strong>');
+    
+    // Procesar listas con viñetas - agrupar elementos consecutivos
+    contenidoHTML = contenidoHTML.replace(/(^- .*(?:\n^- .*)*)/gm, (match) => {
+        const items = match.split('\n').filter(item => item.trim().startsWith('- '));
+        const listItems = items.map(item => {
+            const text = item.replace(/^- /, '').trim();
+            return `<li class="mb-2 text-gray-700 pl-2">${text}</li>`;
+        }).join('');
+        return `<ul class="list-none space-y-2 my-4 pl-6">${listItems}</ul>`;
+    });
+    
+    // Limpiar líneas vacías múltiples
+    contenidoHTML = contenidoHTML.replace(/\n\s*\n\s*\n/g, '\n\n');
+    
+    // Dividir en párrafos y procesar saltos de línea
+    let parrafos = contenidoHTML.split('\n\n');
+    contenidoHTML = parrafos.map(parrafo => {
+        parrafo = parrafo.trim();
+        if (parrafo === '') return '';
+        
+        // Si ya es un título, lista o elemento HTML, no envolver en <p>
+        if (parrafo.startsWith('<h') || parrafo.startsWith('<ul') || parrafo.startsWith('<li')) {
+            return parrafo;
+        }
+        
+        // Convertir saltos de línea simples a <br>
+        parrafo = parrafo.replace(/\n/g, '<br>');
+        
+        return `<p class="mb-4 text-gray-700 leading-relaxed">${parrafo}</p>`;
+    }).join('');
+    
+    // Agregar video tutorial si existe
+    let videoHTML = '';
+    if (post.videoTutorial) {
+        const videoId = post.videoTutorial.split('v=')[1] || post.videoTutorial.split('/').pop();
+        videoHTML = `
+            <div class="mt-12 p-8 bg-white border border-gray-200 rounded-lg shadow-sm">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold text-[#16194a] mb-2">Tutorial en Video</h3>
+                    <p class="text-gray-600">Guía completa para implementar Monday.com en tu organización</p>
                 </div>
-                <p>${post.contenido}</p>
+                <div class="relative w-full bg-gray-100 rounded-lg overflow-hidden" style="padding-bottom: 56.25%;">
+                    <iframe 
+                        class="absolute top-0 left-0 w-full h-full"
+                        src="https://www.youtube.com/embed/${videoId}"
+                        title="Tutorial de ${post.titulo}"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class="text-sm text-gray-500">Video tutorial proporcionado por el equipo de Nexora</p>
+                </div>
+            </div>
+        `;
+    }
+    
+    articulo.innerHTML = `
+                <h1 class="text-4xl font-extrabold text-[#16194a] mb-6 leading-tight">${post.titulo}</h1>
+                <div class="flex items-center text-gray-600 space-x-6 mb-8 pb-6 border-b border-gray-200">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-sm font-medium text-gray-500">Autor:</span>
+                        <span class="text-sm font-semibold text-gray-700">${post.autor}</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-sm font-medium text-gray-500">Fecha:</span>
+                        <span class="text-sm font-semibold text-gray-700">${post.fecha}</span>
+                    </div>
+                    <span class="bg-[#16194a] text-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">${post.categoria}</span>
+                </div>
+                <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                    ${contenidoHTML}
+                    ${videoHTML}
+                </div>
             `;
 
     // Comentarios
