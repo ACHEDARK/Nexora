@@ -1,347 +1,369 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog - Nexora</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-    <link href="/assets/css/style.css" rel="stylesheet" />
-  </head>
-  <body class="bg-gray-50 text-gray-800">
-    <!-- Include global header -->
-    <div id="header-placeholder"></div>
-    <script>
-      fetch("/assets/templates/header.html")
-        .then((response) => response.text())
-        .then((html) => {
-          document.getElementById("header-placeholder").innerHTML = html;
-          console.log('Header loaded, attempting to add mobile menu listener');
-          
-          // Try multiple approaches to ensure the mobile menu works
-          const tryAddListener = () => {
-            if (typeof addMobileMenuListener === "function") {
-              addMobileMenuListener();
-              console.log('Mobile menu listener added via function');
-            } else {
-              console.log('addMobileMenuListener function not available yet');
-            }
-          };
-          
-          // Try immediately
-          tryAddListener();
-          
-          // Try after a short delay
-          setTimeout(tryAddListener, 100);
-          
-          // Try after a longer delay
-          setTimeout(tryAddListener, 500);
-        });
-    </script>
 
-    <!-- Inline mobile menu script as backup -->
-    <script>
-      // Backup mobile menu functionality
-      function initMobileMenu() {
-        const button = document.getElementById('mobile-menu-button');
-        const menu = document.getElementById('mobile-menu');
-        
-        if (button && menu) {
-          button.addEventListener('click', function() {
-            console.log('Mobile menu button clicked (backup script)');
-            const isHidden = menu.classList.contains('hidden');
-            if (isHidden) {
-              menu.classList.remove('hidden');
-              button.setAttribute('aria-expanded', 'true');
-            } else {
-              menu.classList.add('hidden');
-              button.setAttribute('aria-expanded', 'false');
-            }
-          });
-          console.log('Backup mobile menu listener added');
-        }
-      }
-      
-      // Try to initialize immediately and after delays
-      setTimeout(initMobileMenu, 100);
-      setTimeout(initMobileMenu, 500);
-      setTimeout(initMobileMenu, 1000);
-    </script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog - Nexora</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link href="/assets/css/style.css" rel="stylesheet" />
+</head>
 
-    <section class="py-28 bg-white" data-aos="fade-in">
-      <div class="max-w-6xl mx-auto px-4 text-center">
-        <h2
-          class="text-5xl font-extrabold mb-8 text-[#16194a] tracking-tight"
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          Blog de Nexora
-        </h2>
-        <p
-          class="text-2xl mb-8 text-gray-700 font-light max-w-3xl mx-auto"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          Mantente al día con las últimas tendencias en desarrollo de software,
-          IA y tecnología.
-        </p>
-        <!-- Lista de posts -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          <!-- Post 1 -->
-          <article class="blog-card" data-aos="fade-up" data-aos-delay="300">
-            <img
-              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"
-              class="w-full h-48 object-cover"
-              alt="Inteligencia Artificial en el Desarrollo de Software"
-            />
-            <div class="blog-card-content">
-              <h3 class="blog-card-title">
-                La Revolución de la IA en el Desarrollo de Software
-              </h3>
-              <p class="blog-card-excerpt">
-                Descubre cómo la inteligencia artificial está transformando la
-                forma en que desarrollamos software, desde la automatización del
-                código hasta la predicción de bugs.
-              </p>
-              <a href="post.html" class="blog-read-more">Leer más</a>
-            </div>
-          </article>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Include global header -->
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("/assets/templates/header.html")
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById("header-placeholder").innerHTML = html;
+        console.log('Header loaded, attempting to add mobile menu listener');
 
-          <!-- Post 2 -->
-          <article class="blog-card" data-aos="fade-up" data-aos-delay="400">
-            <img
-              src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=400&q=80"
-              class="w-full h-48 object-cover"
-              alt="Desarrollo Web Moderno"
-            />
-            <div class="blog-card-content">
-              <h3 class="blog-card-title">Tendencias 2025 en Desarrollo Web</h3>
-              <p class="blog-card-excerpt">
-                Exploramos las últimas tecnologías y frameworks que están
-                definiendo el futuro del desarrollo web: React Server
-                Components, WebAssembly y más.
-              </p>
-              <a href="post.html" class="blog-read-more">Leer más</a>
-            </div>
-          </article>
+        // Try multiple approaches to ensure the mobile menu works
+        const tryAddListener = () => {
+          if (typeof addMobileMenuListener === "function") {
+            addMobileMenuListener();
+            console.log('Mobile menu listener added via function');
+          } else {
+            console.log('addMobileMenuListener function not available yet');
+          }
+        };
 
-          <!-- Post 3 -->
-          <article class="blog-card" data-aos="fade-up" data-aos-delay="500">
-            <img
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80"
-              class="w-full h-48 object-cover"
-              alt="Análisis de Datos"
-            />
-            <div class="blog-card-content">
-              <h3 class="blog-card-title">
-                Big Data: Transformando Decisiones Empresariales
-              </h3>
-              <p class="blog-card-excerpt">
-                Cómo las empresas están aprovechando el poder del big data para
-                tomar decisiones más inteligentes y mejorar su competitividad en
-                el mercado.
-              </p>
-              <a href="post.html" class="blog-read-more">Leer más</a>
-            </div>
-          </article>
+        // Try immediately
+        tryAddListener();
 
-          <!-- Post 4 -->
-          <article class="blog-card" data-aos="fade-up" data-aos-delay="600">
-            <img
-              src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=400&q=80"
-              class="w-full h-48 object-cover"
-              alt="Desarrollo Móvil"
-            />
-            <div class="blog-card-content">
-              <h3 class="blog-card-title">
-                Apps Móviles: De la Idea a la Tienda
-              </h3>
-              <p class="blog-card-excerpt">
-                Guía completa para desarrollar aplicaciones móviles exitosas,
-                desde el diseño UX/UI hasta la publicación en las tiendas de
-                aplicaciones.
-              </p>
-              <a href="post.html" class="blog-read-more">Leer más</a>
-            </div>
-          </article>
+        // Try after a short delay
+        setTimeout(tryAddListener, 100);
 
-          <!-- Post 5 -->
-          <article class="blog-card" data-aos="fade-up" data-aos-delay="700">
-            <img
-              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80"
-              class="w-full h-48 object-cover"
-              alt="Cloud Computing"
-            />
-            <div class="blog-card-content">
-              <h3 class="blog-card-title">
-                Cloud Computing: Escalabilidad y Eficiencia
-              </h3>
-              <p class="blog-card-excerpt">
-                Descubre los beneficios del cloud computing para empresas de
-                todos los tamaños y cómo migrar tus aplicaciones a la nube de
-                manera segura.
-              </p>
-              <a href="post.html" class="blog-read-more">Leer más</a>
-            </div>
-          </article>
-
-          <!-- Post 6 -->
-          <article class="blog-card" data-aos="fade-up" data-aos-delay="800">
-            <img
-              src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=400&q=80"
-              class="w-full h-48 object-cover"
-              alt="Ciberseguridad"
-            />
-            <div class="blog-card-content">
-              <h3 class="blog-card-title">Ciberseguridad en la Era Digital</h3>
-              <p class="blog-card-excerpt">
-                Protege tus aplicaciones y datos con las mejores prácticas de
-                ciberseguridad. Aprende sobre amenazas emergentes y cómo
-                mitigarlas.
-              </p>
-              <a href="post.html" class="blog-read-more">Leer más</a>
-            </div>
-          </article>
-
-          <!-- Post 7 - Monday.com -->
-          <article class="blog-card" data-aos="fade-up" data-aos-delay="900">
-            <img
-              src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=400&q=80"
-              class="w-full h-48 object-cover"
-              alt="Monday.com - Gestión de Proyectos"
-            />
-            <div class="blog-card-content">
-              <h3 class="blog-card-title">Monday.com: Plataforma Integral para la Gestión de Proyectos Empresariales</h3>
-              <p class="blog-card-excerpt">
-                Análisis completo de Monday.com como solución tecnológica avanzada para la gestión de proyectos empresariales, incluyendo sus capacidades técnicas y beneficios organizacionales.
-              </p>
-              <a href="post.html" class="blog-read-more">Leer más</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script src="/assets/js/script.js"></script>
-    <script>
-      AOS.init({ once: true });
-
-      // Blog posts data
-      const blogPosts = [
-        {
-          id: 1,
-          titulo: "La Revolución de la IA en el Desarrollo de Software",
-          contenido:
-            "La inteligencia artificial está transformando fundamentalmente la forma en que desarrollamos software. Desde la automatización del código con herramientas como GitHub Copilot hasta la predicción de bugs mediante análisis predictivo, la IA se ha convertido en un aliado indispensable para los desarrolladores modernos.\n\nEn Nexora, integramos IA en todos nuestros procesos de desarrollo para aumentar la eficiencia y reducir errores. Nuestros equipos utilizan machine learning para optimizar el rendimiento de aplicaciones, automatizar pruebas y mejorar la experiencia del usuario.\n\nEl futuro del desarrollo de software está aquí, y está potenciado por IA.",
-          autor: "Equipo Nexora",
-          fecha: "15 de enero, 2025",
-          categoria: "Inteligencia Artificial",
-          urlFoto:
-            "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
-          comentarios: [],
-        },
-        {
-          id: 2,
-          titulo: "Tendencias 2025 en Desarrollo Web",
-          contenido:
-            "El desarrollo web continúa evolucionando a un ritmo vertiginoso. En 2025, vemos el auge de tecnologías como React Server Components, que permiten renderizar componentes en el servidor para mejorar el rendimiento, y WebAssembly, que trae aplicaciones de alto rendimiento al navegador.\n\nEn Nexora, adoptamos estas tecnologías para crear experiencias web excepcionales. Nuestros proyectos utilizan las últimas versiones de frameworks como Next.js 15, con su nuevo App Router, y herramientas de edge computing para latencias mínimas.\n\nLa web está más viva que nunca, y nosotros estamos a la vanguardia.",
-          autor: "María González",
-          fecha: "22 de enero, 2025",
-          categoria: "Desarrollo Web",
-          urlFoto:
-            "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&q=80",
-          comentarios: [],
-        },
-        {
-          id: 3,
-          titulo: "Big Data: Transformando Decisiones Empresariales",
-          contenido:
-            "El big data ha dejado de ser una tendencia para convertirse en una necesidad estratégica para las empresas modernas. La capacidad de procesar y analizar enormes volúmenes de datos en tiempo real está revolucionando la toma de decisiones.\n\nEn Nexora, ayudamos a las empresas a implementar arquitecturas de datos escalables utilizando tecnologías como Apache Spark, Kafka y bases de datos NoSQL. Nuestras soluciones de business intelligence permiten a los ejecutivos tomar decisiones basadas en datos precisos y actualizados.\n\nEl futuro pertenece a las empresas data-driven, y nosotros las ayudamos a llegar allí.",
-          autor: "Carlos Rodríguez",
-          fecha: "28 de enero, 2025",
-          categoria: "Análisis de Datos",
-          urlFoto:
-            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-          comentarios: [],
-        },
-        {
-          id: 4,
-          titulo: "Apps Móviles: De la Idea a la Tienda",
-          contenido:
-            "Desarrollar una aplicación móvil exitosa requiere más que código: necesita una estrategia clara, diseño excepcional y una comprensión profunda de la experiencia del usuario.\n\nEn Nexora, guiamos a nuestros clientes desde la concepción inicial hasta la publicación en las tiendas de aplicaciones. Utilizamos Flutter para desarrollo multiplataforma, garantizando consistencia entre iOS y Android, y implementamos las mejores prácticas de UX/UI para crear aplicaciones intuitivas y atractivas.\n\nCada app que lanzamos no solo funciona bien, sino que deleita a sus usuarios.",
-          autor: "Ana López",
-          fecha: "5 de febrero, 2025",
-          categoria: "Desarrollo Móvil",
-          urlFoto:
-            "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
-          comentarios: [],
-        },
-        {
-          id: 5,
-          titulo: "Cloud Computing: Escalabilidad y Eficiencia",
-          contenido:
-            "La nube ha democratizado el acceso a recursos de computación ilimitados, permitiendo a empresas de todos los tamaños escalar sus operaciones de manera eficiente.\n\nEn Nexora, diseñamos arquitecturas cloud-native utilizando servicios de AWS, Azure y Google Cloud. Nuestras implementaciones incluyen contenedores con Kubernetes, serverless computing y estrategias de multi-cloud para máxima resiliencia.\n\nLa nube no es solo una tecnología: es una forma de pensar en la infraestructura que permite innovación rápida y crecimiento sostenible.",
-          autor: "Javier Martínez",
-          fecha: "12 de febrero, 2025",
-          categoria: "Cloud Computing",
-          urlFoto:
-            "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
-          comentarios: [],
-        },
-        {
-          id: 6,
-          titulo: "Ciberseguridad en la Era Digital",
-          contenido:
-            "Con el aumento de ciberataques sofisticados, la ciberseguridad se ha convertido en una prioridad estratégica para todas las organizaciones.\n\nEn Nexora, implementamos defensas en profundidad que incluyen encriptación de datos, autenticación multifactor, monitoreo continuo y respuesta a incidentes. Nuestras soluciones de seguridad están diseñadas para proteger tanto aplicaciones web como móviles, y cumplen con los estándares más exigentes como GDPR y SOC 2.\n\nLa seguridad no es un producto, es un proceso continuo que integramos en cada etapa del desarrollo.",
-          autor: "Laura Sánchez",
-          fecha: "19 de febrero, 2025",
-          categoria: "Ciberseguridad",
-          urlFoto:
-            "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80",
-          comentarios: [],
-        },
-        {
-   id: 7,
-   titulo: "Monday.com: Plataforma Integral para la Gestión de Proyectos Empresariales",
-   contenido:
-     "En el contexto actual de transformación digital empresarial, la eficiencia en la gestión de proyectos se ha convertido en un factor determinante para el éxito organizacional. Monday.com emerge como una solución tecnológica avanzada que redefine los paradigmas tradicionales de gestión de trabajo, ofreciendo una plataforma integral que combina flexibilidad operativa con capacidades analíticas avanzadas.\n\n## Definición y Alcance de Monday.com\n\nMonday.com constituye una plataforma de gestión de trabajo (Work OS) diseñada para optimizar la planificación, organización y seguimiento de tareas, proyectos y flujos de trabajo empresariales. La plataforma se caracteriza por su arquitectura modular y personalizable, permitiendo a las organizaciones adaptar la herramienta a sus procesos específicos y metodologías de trabajo particulares.\n\nFundada en 2012 por Roy Mann y Eran Zinman, Monday.com ha evolucionado de ser una simple herramienta de gestión de proyectos a convertirse en un ecosistema completo de productividad empresarial. La plataforma atiende a más de 200,000 organizaciones en todo el mundo, desde startups hasta empresas Fortune 500.\n\n## Arquitectura Funcional y Capacidades Técnicas\n\n### Tableros de Gestión Avanzados\nLa plataforma implementa un sistema de tableros interactivos que facilitan la visualización estructurada de información crítica. Estos tableros permiten la configuración de columnas personalizadas, etiquetado dinámico y vistas adaptativas que se ajustan a las necesidades específicas de cada proyecto o departamento.\n\nLos tableros de Monday.com ofrecen más de 30 tipos de columnas diferentes, incluyendo texto, números, fechas, estados, personas, archivos, ubicaciones y fórmulas. Esta flexibilidad permite crear workflows personalizados para cualquier tipo de proyecto o proceso empresarial.\n\n### Motor de Automatización Empresarial\nMonday.com incorpora un sistema de automatización robusto que reduce significativamente la intervención manual en procesos repetitivos. Las reglas de automatización pueden configurarse para gestionar notificaciones, actualizaciones de estado, asignaciones de recursos y generación de reportes automáticos, optimizando así la eficiencia operativa.\n\nEl sistema de automatización permite crear hasta 250,000 automatizaciones por cuenta, con más de 200 plantillas predefinidas que cubren casos de uso comunes en diferentes industrias. Las automatizaciones pueden activarse por cambios de estado, fechas límite, nuevos elementos o condiciones personalizadas.\n\n### Ecosistema de Integraciones\nLa plataforma mantiene compatibilidad con más de 200 aplicaciones empresariales, incluyendo sistemas de comunicación (Slack, Microsoft Teams), suites de productividad (Google Workspace, Microsoft 365), herramientas de desarrollo (Jira, GitHub) y plataformas CRM (Salesforce). Esta interoperabilidad garantiza la centralización de información y la coherencia en los flujos de trabajo organizacionales.\n\nLas integraciones incluyen conectores nativos para herramientas populares como Zapier, Microsoft Power Automate, y APIs REST completas que permiten desarrollos personalizados. La plataforma también ofrece webhooks para sincronización en tiempo real con sistemas externos.\n\n### Sistema de Analytics y Business Intelligence\nMonday.com proporciona capacidades avanzadas de análisis de datos que permiten la generación de reportes ejecutivos, dashboards de rendimiento y métricas de productividad. Los paneles de control ofrecen insights cuantitativos sobre tiempos de entrega, distribución de carga de trabajo, cumplimiento de objetivos y eficiencia de procesos.\n\nEl sistema de analytics incluye más de 20 tipos de gráficos y visualizaciones, desde gráficos de Gantt hasta mapas de calor y diagramas de flujo. Los reportes pueden programarse para envío automático y exportarse en múltiples formatos (PDF, Excel, CSV).\n\n## Características Técnicas Avanzadas\n\n### Seguridad y Cumplimiento\nMonday.com implementa medidas de seguridad de nivel empresarial, incluyendo encriptación AES-256, autenticación de dos factores (2FA), single sign-on (SSO) y cumplimiento con estándares como SOC 2 Type II, ISO 27001 y GDPR. La plataforma mantiene centros de datos en múltiples regiones para garantizar la disponibilidad y el cumplimiento de regulaciones locales.\n\n### Escalabilidad y Rendimiento\nLa arquitectura de Monday.com está diseñada para manejar desde equipos pequeños hasta organizaciones con miles de usuarios. La plataforma puede procesar millones de actualizaciones por día y mantiene tiempos de respuesta consistentes independientemente del volumen de datos.\n\n### Personalización y Branding\nLas organizaciones pueden personalizar completamente la apariencia de Monday.com con sus colores corporativos, logos y elementos de marca. Esta personalización se extiende a los tableros, reportes y comunicaciones automáticas.\n\n## Impacto Organizacional y Beneficios Estratégicos\n\nLa implementación de Monday.com genera impactos positivos en múltiples dimensiones organizacionales:\n\n- **Transparencia Operativa**: Proporciona visibilidad completa sobre el estado de proyectos y recursos en tiempo real, eliminando la necesidad de reuniones de seguimiento constantes\n- **Optimización de Comunicación**: Centraliza la información y elimina la fragmentación de canales de comunicación, reduciendo el ruido informativo en un 60%\n- **Incremento de Productividad**: Las automatizaciones y la claridad en asignaciones reducen errores operativos y retrasos en entregables en un promedio del 35%\n- **Escalabilidad Organizacional**: La plataforma se adapta desde equipos de trabajo pequeños hasta estructuras corporativas complejas sin requerir migraciones costosas\n- **Reducción de Costos**: La automatización de procesos repetitivos puede generar ahorros de hasta 20 horas por empleado por mes\n- **Mejora en la Toma de Decisiones**: Los dashboards en tiempo real proporcionan datos actualizados para decisiones estratégicas más informadas\n\n## Aplicaciones Empresariales y Casos de Uso\n\nMonday.com se implementa exitosamente en diversos sectores empresariales:\n\n**Marketing y Ventas**: Planificación de campañas, seguimiento de leads, gestión de contenido y análisis de ROI. Las empresas reportan un aumento del 25% en la eficiencia de sus equipos de marketing.\n\n**Desarrollo de Software**: Gestión de sprints, seguimiento de bugs, planificación de releases y coordinación entre equipos de desarrollo. Compatible con metodologías Agile, Scrum y DevOps.\n\n**Recursos Humanos**: Gestión de reclutamiento, onboarding de empleados, evaluación de desempeño y planificación de recursos. Reduce el tiempo de contratación en un 30%.\n\n**Operaciones y Logística**: Seguimiento de inventarios, gestión de proveedores, planificación de producción y optimización de rutas de entrega.\n\n**Servicio al Cliente**: Gestión de tickets, seguimiento de SLA, análisis de satisfacción y optimización de procesos de soporte.\n\n## Implementación en Nexora\n\nEn Nexora, hemos integrado Monday.com como plataforma central para la gestión de todos nuestros proyectos de desarrollo tecnológico. La implementación ha resultado en una mejora del 40% en la eficiencia operativa del equipo y una reducción significativa en los tiempos de entrega de proyectos.\n\n**Beneficios Específicos en Nexora**:\n- Reducción del 50% en el tiempo de planificación de proyectos\n- Mejora del 60% en la visibilidad del progreso para clientes\n- Automatización del 80% de las tareas administrativas repetitivas\n- Incremento del 35% en la satisfacción del cliente debido a entregas más puntuales\n\nLa plataforma nos permite mantener a nuestros clientes informados sobre el progreso de sus proyectos a través de dashboards personalizados y reportes automáticos. Cada cliente tiene acceso a un tablero específico donde puede ver el estado de su proyecto, próximas entregas y comunicarse directamente con nuestro equipo.\n\n## Comparación con Otras Herramientas\n\nMonday.com se distingue de competidores como Asana, Trello y Jira por su flexibilidad y capacidades de automatización. Mientras que Asana se enfoca en la gestión de tareas, Monday.com ofrece un ecosistema completo que incluye CRM, gestión de recursos y analytics avanzados.\n\n**Ventajas sobre Trello**: Mayor capacidad de personalización, automatizaciones más robustas y mejor integración con herramientas empresariales.\n\n**Ventajas sobre Jira**: Interfaz más intuitiva, menor curva de aprendizaje y capacidades de gestión de proyectos más amplias más allá del desarrollo de software.\n\n## Conclusiones y Perspectivas Futuras\n\nMonday.com representa una solución tecnológica integral que trasciende las limitaciones de las herramientas tradicionales de gestión de proyectos. Su enfoque en la personalización, automatización y análisis de datos lo posiciona como una herramienta estratégica para organizaciones que buscan optimizar su eficiencia operativa y fomentar una cultura de trabajo basada en la transparencia y la orientación a resultados.\n\nLa adopción de Monday.com no solo mejora la organización interna, sino que establece las bases para una transformación digital más amplia que impulsa la competitividad y la innovación organizacional. Con su continua evolución y la adición de nuevas funcionalidades como IA integrada y capacidades de machine learning, Monday.com está posicionado para liderar el futuro de la gestión de trabajo empresarial.\n\nPara organizaciones que buscan modernizar sus procesos y mejorar su eficiencia operativa, Monday.com ofrece una solución probada que se adapta a las necesidades específicas de cada industria y tamaño de empresa.",
-   autor: "Equipo de Desarrollo Nexora",
-   fecha: "26 de febrero, 2025",
-   categoria: "Gestión de Proyectos",
-   urlFoto:
-     "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=800&q=80",
-   comentarios: [],
-   videoTutorial: "https://youtu.be/10epjfw07fI"
- }
-
-      ];
-
-      // Handle "Leer más" clicks
-      document.addEventListener("DOMContentLoaded", function () {
-        // Esperar un poco para asegurar que el DOM esté completamente cargado
-        setTimeout(() => {
-          const readMoreButtons = document.querySelectorAll(".blog-read-more");
-          console.log("Found buttons:", readMoreButtons.length);
-          console.log("Blog posts:", blogPosts.length);
-
-          readMoreButtons.forEach((button, index) => {
-            button.addEventListener("click", function (e) {
-              e.preventDefault();
-              console.log("Button clicked, index:", index);
-              
-              if (blogPosts[index]) {
-                const post = blogPosts[index];
-                console.log("Selected post:", post.titulo);
-                localStorage.setItem("postSeleccionado", JSON.stringify(post));
-                window.location.href = "post.html";
-              } else {
-                console.error("No post found for index:", index);
-              }
-            });
-          });
-        }, 100);
+        // Try after a longer delay
+        setTimeout(tryAddListener, 500);
       });
-    </script>
-  </body>
+  </script>
+
+  <!-- Inline mobile menu script as backup -->
+  <script>
+    // Backup mobile menu functionality
+    function initMobileMenu() {
+      const button = document.getElementById('mobile-menu-button');
+      const menu = document.getElementById('mobile-menu');
+
+      if (button && menu) {
+        button.addEventListener('click', function () {
+          console.log('Mobile menu button clicked (backup script)');
+          const isHidden = menu.classList.contains('hidden');
+          if (isHidden) {
+            menu.classList.remove('hidden');
+            button.setAttribute('aria-expanded', 'true');
+          } else {
+            menu.classList.add('hidden');
+            button.setAttribute('aria-expanded', 'false');
+          }
+        });
+        console.log('Backup mobile menu listener added');
+      }
+    }
+
+    // Try to initialize immediately and after delays
+    setTimeout(initMobileMenu, 100);
+    setTimeout(initMobileMenu, 500);
+    setTimeout(initMobileMenu, 1000);
+  </script>
+
+  <section class="py-28 bg-white" data-aos="fade-in">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-5xl font-extrabold mb-8 text-[#16194a] tracking-tight" data-aos="fade-up" data-aos-delay="100">
+        Blog de Nexora
+      </h2>
+      <p class="text-2xl mb-8 text-gray-700 font-light max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+        Mantente al día con las últimas tendencias en desarrollo de software,
+        IA y tecnología.
+      </p>
+      <!-- Lista de posts -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        <!-- Post 1 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="300">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"
+            class="w-full h-48 object-cover" alt="Inteligencia Artificial en el Desarrollo de Software" />
+          <div class="blog-card-content">
+            <h3 class="blog-card-title">
+              La Revolución de la IA en el Desarrollo de Software
+            </h3>
+            <p class="blog-card-excerpt">
+              Descubre cómo la inteligencia artificial está transformando la
+              forma en que desarrollamos software, desde la automatización del
+              código hasta la predicción de bugs.
+            </p>
+            <a href="post.html" class="blog-read-more">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="400">
+          <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=400&q=80"
+            class="w-full h-48 object-cover" alt="Desarrollo Web Moderno" />
+          <div class="blog-card-content">
+            <h3 class="blog-card-title">Tendencias 2025 en Desarrollo Web</h3>
+            <p class="blog-card-excerpt">
+              Exploramos las últimas tecnologías y frameworks que están
+              definiendo el futuro del desarrollo web: React Server
+              Components, WebAssembly y más.
+            </p>
+            <a href="post.html" class="blog-read-more">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="500">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80"
+            class="w-full h-48 object-cover" alt="Análisis de Datos" />
+          <div class="blog-card-content">
+            <h3 class="blog-card-title">
+              Big Data: Transformando Decisiones Empresariales
+            </h3>
+            <p class="blog-card-excerpt">
+              Cómo las empresas están aprovechando el poder del big data para
+              tomar decisiones más inteligentes y mejorar su competitividad en
+              el mercado.
+            </p>
+            <a href="post.html" class="blog-read-more">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Post 4 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="600">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=400&q=80"
+            class="w-full h-48 object-cover" alt="Desarrollo Móvil" />
+          <div class="blog-card-content">
+            <h3 class="blog-card-title">
+              Apps Móviles: De la Idea a la Tienda
+            </h3>
+            <p class="blog-card-excerpt">
+              Guía completa para desarrollar aplicaciones móviles exitosas,
+              desde el diseño UX/UI hasta la publicación en las tiendas de
+              aplicaciones.
+            </p>
+            <a href="post.html" class="blog-read-more">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Post 5 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="700">
+          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80"
+            class="w-full h-48 object-cover" alt="Cloud Computing" />
+          <div class="blog-card-content">
+            <h3 class="blog-card-title">
+              Cloud Computing: Escalabilidad y Eficiencia
+            </h3>
+            <p class="blog-card-excerpt">
+              Descubre los beneficios del cloud computing para empresas de
+              todos los tamaños y cómo migrar tus aplicaciones a la nube de
+              manera segura.
+            </p>
+            <a href="post.html" class="blog-read-more">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Post 6 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="800">
+          <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=400&q=80"
+            class="w-full h-48 object-cover" alt="Ciberseguridad" />
+          <div class="blog-card-content">
+            <h3 class="blog-card-title">Ciberseguridad en la Era Digital</h3>
+            <p class="blog-card-excerpt">
+              Protege tus aplicaciones y datos con las mejores prácticas de
+              ciberseguridad. Aprende sobre amenazas emergentes y cómo
+              mitigarlas.
+            </p>
+            <a href="post.html" class="blog-read-more">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Post 7 - Monday.com -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="900">
+          <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=400&q=80"
+            class="w-full h-48 object-cover" alt="Monday.com - Gestión de Proyectos" />
+          <div class="blog-card-content">
+            <h3 class="blog-card-title">Monday.com: Plataforma Integral para la Gestión de Proyectos Empresariales</h3>
+            <p class="blog-card-excerpt">
+              Análisis completo de Monday.com como solución tecnológica avanzada para la gestión de proyectos
+              empresariales, incluyendo sus capacidades técnicas y beneficios organizacionales.
+            </p>
+            <a href="post.html" class="blog-read-more">Leer más</a>
+          </div>
+        </article>
+        <!-- Post 8 - Jenkins -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="1200">
+          <img src="https://voidnull.es/content/images/2023/03/jenkins-1.png?auto=format&fit=crop&w=400&q=80"
+            class="w-full h-48 object-cover" alt="Jenkins - CI/CD DevOps" />
+          <div class="blog-card-content">
+            <h3 class="blog-card-title">Jenkins: El Servidor de Automatización Open Source para CI/CD</h3>
+            <p class="blog-card-excerpt">
+              Análisis de Jenkins como la herramienta líder para implementar la Integración Continua y el Despliegue
+              Continuo (CI/CD), sus fundamentos en DevOps y la arquitectura de sus pipelines.
+            </p>
+            <a href="post.html" class="blog-read-more">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Post 9 - Capacitor con React -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="1300">
+          <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=400&q=80"
+            class="w-full h-48 object-cover" alt="Capacitor con React - Desarrollo Móvil Híbrido" />
+          <div class="blog-card-content">
+            <h3 class="blog-card-title">Capacitor con React: La Nueva Era del Desarrollo Móvil Multiplataforma</h3>
+            <p class="blog-card-excerpt">
+              Guía completa sobre cómo Capacitor está revolucionando el desarrollo móvil con React, permitiendo crear aplicaciones nativas para iOS y Android desde una única base de código web.
+            </p>
+            <a href="post.html" class="blog-read-more">Leer más</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="/assets/js/script.js"></script>
+  <script>
+    AOS.init({ once: true });
+
+    // Blog posts data
+    const blogPosts = [
+      {
+        id: 1,
+        titulo: "La Revolución de la IA en el Desarrollo de Software",
+        contenido:
+          "La inteligencia artificial está transformando fundamentalmente la forma en que desarrollamos software. Desde la automatización del código con herramientas como GitHub Copilot hasta la predicción de bugs mediante análisis predictivo, la IA se ha convertido en un aliado indispensable para los desarrolladores modernos.\n\nEn Nexora, integramos IA en todos nuestros procesos de desarrollo para aumentar la eficiencia y reducir errores. Nuestros equipos utilizan machine learning para optimizar el rendimiento de aplicaciones, automatizar pruebas y mejorar la experiencia del usuario.\n\nEl futuro del desarrollo de software está aquí, y está potenciado por IA.",
+        autor: "Equipo Nexora",
+        fecha: "15 de enero, 2025",
+        categoria: "Inteligencia Artificial",
+        urlFoto:
+          "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
+        comentarios: [],
+      },
+      {
+        id: 2,
+        titulo: "Tendencias 2025 en Desarrollo Web",
+        contenido:
+          "El desarrollo web continúa evolucionando a un ritmo vertiginoso. En 2025, vemos el auge de tecnologías como React Server Components, que permiten renderizar componentes en el servidor para mejorar el rendimiento, y WebAssembly, que trae aplicaciones de alto rendimiento al navegador.\n\nEn Nexora, adoptamos estas tecnologías para crear experiencias web excepcionales. Nuestros proyectos utilizan las últimas versiones de frameworks como Next.js 15, con su nuevo App Router, y herramientas de edge computing para latencias mínimas.\n\nLa web está más viva que nunca, y nosotros estamos a la vanguardia.",
+        autor: "María González",
+        fecha: "22 de enero, 2025",
+        categoria: "Desarrollo Web",
+        urlFoto:
+          "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&q=80",
+        comentarios: [],
+      },
+      {
+        id: 3,
+        titulo: "Big Data: Transformando Decisiones Empresariales",
+        contenido:
+          "El big data ha dejado de ser una tendencia para convertirse en una necesidad estratégica para las empresas modernas. La capacidad de procesar y analizar enormes volúmenes de datos en tiempo real está revolucionando la toma de decisiones.\n\nEn Nexora, ayudamos a las empresas a implementar arquitecturas de datos escalables utilizando tecnologías como Apache Spark, Kafka y bases de datos NoSQL. Nuestras soluciones de business intelligence permiten a los ejecutivos tomar decisiones basadas en datos precisos y actualizados.\n\nEl futuro pertenece a las empresas data-driven, y nosotros las ayudamos a llegar allí.",
+        autor: "Carlos Rodríguez",
+        fecha: "28 de enero, 2025",
+        categoria: "Análisis de Datos",
+        urlFoto:
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+        comentarios: [],
+      },
+      {
+        id: 4,
+        titulo: "Apps Móviles: De la Idea a la Tienda",
+        contenido:
+          "Desarrollar una aplicación móvil exitosa requiere más que código: necesita una estrategia clara, diseño excepcional y una comprensión profunda de la experiencia del usuario.\n\nEn Nexora, guiamos a nuestros clientes desde la concepción inicial hasta la publicación en las tiendas de aplicaciones. Utilizamos Flutter para desarrollo multiplataforma, garantizando consistencia entre iOS y Android, y implementamos las mejores prácticas de UX/UI para crear aplicaciones intuitivas y atractivas.\n\nCada app que lanzamos no solo funciona bien, sino que deleita a sus usuarios.",
+        autor: "Ana López",
+        fecha: "5 de febrero, 2025",
+        categoria: "Desarrollo Móvil",
+        urlFoto:
+          "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
+        comentarios: [],
+      },
+      {
+        id: 5,
+        titulo: "Cloud Computing: Escalabilidad y Eficiencia",
+        contenido:
+          "La nube ha democratizado el acceso a recursos de computación ilimitados, permitiendo a empresas de todos los tamaños escalar sus operaciones de manera eficiente.\n\nEn Nexora, diseñamos arquitecturas cloud-native utilizando servicios de AWS, Azure y Google Cloud. Nuestras implementaciones incluyen contenedores con Kubernetes, serverless computing y estrategias de multi-cloud para máxima resiliencia.\n\nLa nube no es solo una tecnología: es una forma de pensar en la infraestructura que permite innovación rápida y crecimiento sostenible.",
+        autor: "Javier Martínez",
+        fecha: "12 de febrero, 2025",
+        categoria: "Cloud Computing",
+        urlFoto:
+          "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+        comentarios: [],
+      },
+      {
+        id: 6,
+        titulo: "Ciberseguridad en la Era Digital",
+        contenido:
+          "Con el aumento de ciberataques sofisticados, la ciberseguridad se ha convertido en una prioridad estratégica para todas las organizaciones.\n\nEn Nexora, implementamos defensas en profundidad que incluyen encriptación de datos, autenticación multifactor, monitoreo continuo y respuesta a incidentes. Nuestras soluciones de seguridad están diseñadas para proteger tanto aplicaciones web como móviles, y cumplen con los estándares más exigentes como GDPR y SOC 2.\n\nLa seguridad no es un producto, es un proceso continuo que integramos en cada etapa del desarrollo.",
+        autor: "Laura Sánchez",
+        fecha: "19 de febrero, 2025",
+        categoria: "Ciberseguridad",
+        urlFoto:
+          "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80",
+        comentarios: [],
+      },
+      {
+        id: 7,
+        titulo: "Monday.com: Plataforma Integral para la Gestión de Proyectos Empresariales",
+        contenido:
+          "En el contexto actual de transformación digital empresarial, la eficiencia en la gestión de proyectos se ha convertido en un factor determinante para el éxito organizacional. Monday.com emerge como una solución tecnológica avanzada que redefine los paradigmas tradicionales de gestión de trabajo, ofreciendo una plataforma integral que combina flexibilidad operativa con capacidades analíticas avanzadas.\n\n## Definición y Alcance de Monday.com\n\nMonday.com constituye una plataforma de gestión de trabajo (Work OS) diseñada para optimizar la planificación, organización y seguimiento de tareas, proyectos y flujos de trabajo empresariales. La plataforma se caracteriza por su arquitectura modular y personalizable, permitiendo a las organizaciones adaptar la herramienta a sus procesos específicos y metodologías de trabajo particulares.\n\nFundada en 2012 por Roy Mann y Eran Zinman, Monday.com ha evolucionado de ser una simple herramienta de gestión de proyectos a convertirse en un ecosistema completo de productividad empresarial. La plataforma atiende a más de 200,000 organizaciones en todo el mundo, desde startups hasta empresas Fortune 500.\n\n## Arquitectura Funcional y Capacidades Técnicas\n\n### Tableros de Gestión Avanzados\nLa plataforma implementa un sistema de tableros interactivos que facilitan la visualización estructurada de información crítica. Estos tableros permiten la configuración de columnas personalizadas, etiquetado dinámico y vistas adaptativas que se ajustan a las necesidades específicas de cada proyecto o departamento.\n\nLos tableros de Monday.com ofrecen más de 30 tipos de columnas diferentes, incluyendo texto, números, fechas, estados, personas, archivos, ubicaciones y fórmulas. Esta flexibilidad permite crear workflows personalizados para cualquier tipo de proyecto o proceso empresarial.\n\n### Motor de Automatización Empresarial\nMonday.com incorpora un sistema de automatización robusto que reduce significativamente la intervención manual en procesos repetitivos. Las reglas de automatización pueden configurarse para gestionar notificaciones, actualizaciones de estado, asignaciones de recursos y generación de reportes automáticos, optimizando así la eficiencia operativa.\n\nEl sistema de automatización permite crear hasta 250,000 automatizaciones por cuenta, con más de 200 plantillas predefinidas que cubren casos de uso comunes en diferentes industrias. Las automatizaciones pueden activarse por cambios de estado, fechas límite, nuevos elementos o condiciones personalizadas.\n\n### Ecosistema de Integraciones\nLa plataforma mantiene compatibilidad con más de 200 aplicaciones empresariales, incluyendo sistemas de comunicación (Slack, Microsoft Teams), suites de productividad (Google Workspace, Microsoft 365), herramientas de desarrollo (Jira, GitHub) y plataformas CRM (Salesforce). Esta interoperabilidad garantiza la centralización de información y la coherencia en los flujos de trabajo organizacionales.\n\nLas integraciones incluyen conectores nativos para herramientas populares como Zapier, Microsoft Power Automate, y APIs REST completas que permiten desarrollos personalizados. La plataforma también ofrece webhooks para sincronización en tiempo real con sistemas externos.\n\n### Sistema de Analytics y Business Intelligence\nMonday.com proporciona capacidades avanzadas de análisis de datos que permiten la generación de reportes ejecutivos, dashboards de rendimiento y métricas de productividad. Los paneles de control ofrecen insights cuantitativos sobre tiempos de entrega, distribución de carga de trabajo, cumplimiento de objetivos y eficiencia de procesos.\n\nEl sistema de analytics incluye más de 20 tipos de gráficos y visualizaciones, desde gráficos de Gantt hasta mapas de calor y diagramas de flujo. Los reportes pueden programarse para envío automático y exportarse en múltiples formatos (PDF, Excel, CSV).\n\n## Características Técnicas Avanzadas\n\n### Seguridad y Cumplimiento\nMonday.com implementa medidas de seguridad de nivel empresarial, incluyendo encriptación AES-256, autenticación de dos factores (2FA), single sign-on (SSO) y cumplimiento con estándares como SOC 2 Type II, ISO 27001 y GDPR. La plataforma mantiene centros de datos en múltiples regiones para garantizar la disponibilidad y el cumplimiento de regulaciones locales.\n\n### Escalabilidad y Rendimiento\nLa arquitectura de Monday.com está diseñada para manejar desde equipos pequeños hasta organizaciones con miles de usuarios. La plataforma puede procesar millones de actualizaciones por día y mantiene tiempos de respuesta consistentes independientemente del volumen de datos.\n\n### Personalización y Branding\nLas organizaciones pueden personalizar completamente la apariencia de Monday.com con sus colores corporativos, logos y elementos de marca. Esta personalización se extiende a los tableros, reportes y comunicaciones automáticas.\n\n## Impacto Organizacional y Beneficios Estratégicos\n\nLa implementación de Monday.com genera impactos positivos en múltiples dimensiones organizacionales:\n\n- **Transparencia Operativa**: Proporciona visibilidad completa sobre el estado de proyectos y recursos en tiempo real, eliminando la necesidad de reuniones de seguimiento constantes\n- **Optimización de Comunicación**: Centraliza la información y elimina la fragmentación de canales de comunicación, reduciendo el ruido informativo en un 60%\n- **Incremento de Productividad**: Las automatizaciones y la claridad en asignaciones reducen errores operativos y retrasos en entregables en un promedio del 35%\n- **Escalabilidad Organizacional**: La plataforma se adapta desde equipos de trabajo pequeños hasta estructuras corporativas complejas sin requerir migraciones costosas\n- **Reducción de Costos**: La automatización de procesos repetitivos puede generar ahorros de hasta 20 horas por empleado por mes\n- **Mejora en la Toma de Decisiones**: Los dashboards en tiempo real proporcionan datos actualizados para decisiones estratégicas más informadas\n\n## Aplicaciones Empresariales y Casos de Uso\n\nMonday.com se implementa exitosamente en diversos sectores empresariales:\n\n**Marketing y Ventas**: Planificación de campañas, seguimiento de leads, gestión de contenido y análisis de ROI. Las empresas reportan un aumento del 25% en la eficiencia de sus equipos de marketing.\n\n**Desarrollo de Software**: Gestión de sprints, seguimiento de bugs, planificación de releases y coordinación entre equipos de desarrollo. Compatible con metodologías Agile, Scrum y DevOps.\n\n**Recursos Humanos**: Gestión de reclutamiento, onboarding de empleados, evaluación de desempeño y planificación de recursos. Reduce el tiempo de contratación en un 30%.\n\n**Operaciones y Logística**: Seguimiento de inventarios, gestión de proveedores, planificación de producción y optimización de rutas de entrega.\n\n**Servicio al Cliente**: Gestión de tickets, seguimiento de SLA, análisis de satisfacción y optimización de procesos de soporte.\n\n## Implementación en Nexora\n\nEn Nexora, hemos integrado Monday.com como plataforma central para la gestión de todos nuestros proyectos de desarrollo tecnológico. La implementación ha resultado en una mejora del 40% en la eficiencia operativa del equipo y una reducción significativa en los tiempos de entrega de proyectos.\n\n**Beneficios Específicos en Nexora**:\n- Reducción del 50% en el tiempo de planificación de proyectos\n- Mejora del 60% en la visibilidad del progreso para clientes\n- Automatización del 80% de las tareas administrativas repetitivas\n- Incremento del 35% en la satisfacción del cliente debido a entregas más puntuales\n\nLa plataforma nos permite mantener a nuestros clientes informados sobre el progreso de sus proyectos a través de dashboards personalizados y reportes automáticos. Cada cliente tiene acceso a un tablero específico donde puede ver el estado de su proyecto, próximas entregas y comunicarse directamente con nuestro equipo.\n\n## Comparación con Otras Herramientas\n\nMonday.com se distingue de competidores como Asana, Trello y Jira por su flexibilidad y capacidades de automatización. Mientras que Asana se enfoca en la gestión de tareas, Monday.com ofrece un ecosistema completo que incluye CRM, gestión de recursos y analytics avanzados.\n\n**Ventajas sobre Trello**: Mayor capacidad de personalización, automatizaciones más robustas y mejor integración con herramientas empresariales.\n\n**Ventajas sobre Jira**: Interfaz más intuitiva, menor curva de aprendizaje y capacidades de gestión de proyectos más amplias más allá del desarrollo de software.\n\n## Conclusiones y Perspectivas Futuras\n\nMonday.com representa una solución tecnológica integral que trasciende las limitaciones de las herramientas tradicionales de gestión de proyectos. Su enfoque en la personalización, automatización y análisis de datos lo posiciona como una herramienta estratégica para organizaciones que buscan optimizar su eficiencia operativa y fomentar una cultura de trabajo basada en la transparencia y la orientación a resultados.\n\nLa adopción de Monday.com no solo mejora la organización interna, sino que establece las bases para una transformación digital más amplia que impulsa la competitividad y la innovación organizacional. Con su continua evolución y la adición de nuevas funcionalidades como IA integrada y capacidades de machine learning, Monday.com está posicionado para liderar el futuro de la gestión de trabajo empresarial.\n\nPara organizaciones que buscan modernizar sus procesos y mejorar su eficiencia operativa, Monday.com ofrece una solución probada que se adapta a las necesidades específicas de cada industria y tamaño de empresa.",
+        autor: "Equipo de Desarrollo Nexora",
+        fecha: "26 de febrero, 2025",
+        categoria: "Gestión de Proyectos",
+        urlFoto:
+          "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=800&q=80",
+        comentarios: [],
+        videoTutorial: "https://youtu.be/10epjfw07fI"
+      }, {
+        id: 8,
+        titulo: "Jenkins: El Servidor de Automatización Open Source para CI/CD",
+        contenido: "En el panorama DevOps, la capacidad de entregar software de forma rápida, fiable y automatizada es un imperativo estratégico. Jenkins es la herramienta líder de código abierto que facilita este proceso, actuando como el motor central para implementar la Integración Continua (CI) y el Despliegue Continuo (CD) en cualquier tipo de proyecto, independientemente de la tecnología o la infraestructura.\n\n## Definición y Rol en el Ecosistema CI/CD\n\nJenkins es un servidor de automatización de código abierto escrito en Java. Su función principal es automatizar las partes del proceso de desarrollo de software relacionadas con la construcción, prueba y despliegue, facilitando la integración de cambios de código múltiples veces al día.\n\nFundado en 2011 (como un fork de Hudson), Jenkins se ha convertido en el estándar de facto para la automatización de *pipelines* de CI/CD. Es altamente extensible, gracias a una comunidad activa que mantiene miles de *plugins* que permiten su integración con prácticamente cualquier herramienta o plataforma tecnológica existente.\n\n## Arquitectura Funcional y Mecanismos de Ejecución\n\n### Arquitectura Maestro-Esclavo (Controller-Agent)\nJenkins utiliza una arquitectura distribuida para manejar grandes volúmenes de trabajo. El componente principal es el **Controlador (Master)**, que gestiona la programación de trabajos, la configuración, y la monitorización de los *Agentes (Slaves/Workers)*. Los Agentes se encargan de ejecutar las tareas de construcción y prueba en entornos aislados, permitiendo escalar la capacidad de procesamiento y ejecutar diferentes tipos de trabajos simultáneamente en distintos sistemas operativos.\n\n### Pipelines como Código (Jenkinsfile)\nJenkins promueve la práctica de 'Pipeline as Code' mediante el uso de `Jenkinsfile`s, archivos de texto que definen la totalidad del flujo de trabajo de CI/CD utilizando Groovy DSL (Domain-Specific Language).\n\nLos `Jenkinsfile`s permiten definir *pipelines* de dos maneras:\n\n* **Declarativo**: Estructura simple y predefinida para flujos de trabajo secuenciales y paralelos.\n* **Scripted**: Mayor flexibilidad para lógica compleja y casos de uso avanzados.\n\nEsta práctica asegura que el proceso de entrega sea versionado, auditable y esté almacenado junto con el código fuente en el sistema de control de versiones (Git).\n\n## Fases Clave del Pipeline CI/CD con Jenkins\n\nUn pipeline típico de Jenkins cubre las siguientes etapas esenciales:\n\n1. **Checkout (Integración Continua)**: Obtiene la última versión del código fuente desde un repositorio (GitHub, GitLab, Bitbucket) tras un *commit* o *merge*.\n2. **Build (Construcción)**: Compila el código, resuelve dependencias y genera artefactos de despliegue (JAR, WAR, imágenes Docker).\n3. **Test (Pruebas)**: Ejecuta pruebas unitarias, de integración y de seguridad estática (SAST). Solo si esta etapa es exitosa, se continúa.\n4. **Package (Empaquetado)**: Crea contenedores Docker a partir de los artefactos o paquetes de despliegue final.\n5. **Deployment (Despliegue Continuo)**: Despliega el artefacto en entornos de prueba, staging y producción, utilizando herramientas como Ansible, Terraform o Kubernetes.\n6. **Feedback/Reporting**: Notifica al equipo (vía Slack, correo) sobre el estado del pipeline y genera reportes de cobertura de código y pruebas.\n\n## Extensibilidad y Plugins Críticos\n\nLa principal fortaleza de Jenkins reside en su vasto ecosistema de *plugins*:\n\n* **Pipeline Plugin**: Fundamental para la definición de pipelines como código.\n* **Docker Pipeline Plugin**: Facilita la construcción, etiquetado y *push* de imágenes Docker.\n* **Kubernetes Plugin**: Permite provisionar y ejecutar Agentes de Jenkins como Pods efímeros en un clúster K8s, escalando los recursos de CI/CD de forma dinámica.\n* **Git / GitHub / GitLab Plugins**: Integración nativa con los principales sistemas de control de versiones.\n* **SonarQube Plugin**: Integra el análisis de calidad de código y seguridad dentro del pipeline.\n\n## Beneficios de la Automatización con Jenkins en DevOps\n\nLa implementación de Jenkins transforma la operativa de desarrollo:\n\n* **Reducción del Riesgo**: Las pruebas y la integración automatizadas detectan errores en etapas tempranas, donde son más baratos de corregir (*Shift-Left Testing*).\n* **Consistencia del Proceso**: Cada despliegue sigue exactamente los mismos pasos definidos en el `Jenkinsfile`, eliminando la variabilidad humana.\n* **Aumento de la Frecuencia de Despliegue**: Permite realizar múltiples despliegues a producción por día, acelerando el ciclo de retroalimentación y la capacidad de respuesta a las necesidades del negocio.\n* **Trazabilidad y Auditoría**: Cada ejecución de pipeline, con sus pasos y resultados, queda registrada y es fácilmente auditable.\n\n## Conclusión y Tendencias Futuras\n\nAunque han surgido alternativas basadas en SaaS (como GitHub Actions o GitLab CI), Jenkins sigue siendo la opción preferida para organizaciones que requieren un alto nivel de personalización, control total sobre su infraestructura de CI/CD, y la integración con sistemas *on-premise* heredados. La evolución de Jenkins se centra en la optimización de los *plugins* para *Cloud Native*, la mejora de la experiencia de usuario con Blue Ocean y una mayor integración con tecnologías de observabilidad.",
+        autor: "Equipo de Ingeniería de Software y DevOps",
+        fecha: "01 de abril, 2026",
+        categoria: "Integración y Despliegue Continuo (CI/CD)",
+        urlFoto: "https://voidnull.es/content/images/2023/03/jenkins-1.png?auto=format&fit=crop&w=800&q=80",
+        comentarios: [],
+        videoTutorial: "https://youtu.be/XA_p28uZ3Ws"
+      },
+      {
+        id: 9,
+        titulo: "Capacitor con React: La Nueva Era del Desarrollo Móvil Multiplataforma",
+        contenido: "En el ecosistema actual del desarrollo de aplicaciones móviles, la capacidad de crear experiencias nativas de alta calidad desde una única base de código web se ha convertido en una ventaja competitiva crucial. Capacitor, desarrollado por el equipo de Ionic, representa una evolución significativa en esta área, ofreciendo un puente moderno y eficiente entre las tecnologías web y las capacidades nativas de iOS y Android. Su integración con React abre un universo de posibilidades para los desarrolladores web que desean adentrarse en el mundo móvil sin abandonar las herramientas y frameworks que dominan.\n\n## ¿Qué es Capacitor y Por Qué es Revolucionario?\n\nCapacitor es un runtime de código abierto que permite a los desarrolladores web construir aplicaciones iOS, Android y Progressive Web Apps (PWA) con una única base de código JavaScript, HTML y CSS. A diferencia de su predecesor Cordova, Capacitor fue diseñado desde cero con la web moderna en mente, ofreciendo una arquitectura más limpia, mejor rendimiento y una experiencia de desarrollo significativamente mejorada.\n\n### Características Fundamentales de Capacitor\n\n**Arquitectura Nativa Moderna**: Capacitor no funciona como un WebView empaquetador tradicional. En su lugar, utiliza las capacidades nativas más recientes de cada plataforma, asegurando que las aplicaciones se sientan verdaderamente nativas.\n\n**Compatibilidad con Plugins de Cordova**: Una de las ventajas estratégicas de Capacitor es su retrocompatibilidad con la mayoría de los plugins de Cordova, permitiendo una migración gradual y el aprovechamiento de un ecosistema de plugins ya maduro.\n\n**APIs Nativas Unificadas**: Capacitor proporciona APIs JavaScript consistentes para acceder a funcionalidades nativas como cámara, geolocalización, sistema de archivos, notificaciones push y más, abstrayendo las diferencias entre plataformas.\n\n**Desarrollo de Plugins Personalizado**: Los desarrolladores pueden crear fácilmente sus propios plugins nativos cuando necesitan funcionalidades específicas que no están cubiertas por los plugins existentes.\n\n## Integración de Capacitor con React: El Stack Perfecto\n\nReact se ha consolidado como uno de los frameworks más populares para el desarrollo de interfaces de usuario, con su enfoque basado en componentes, virtual DOM eficiente y un ecosistema robusto. La combinación de React con Capacitor crea un stack tecnológico potente que permite:\n\n### Ventajas de React + Capacitor\n\n1. **Desarrollo Multiplataforma Real**: Escribe una vez, despliega en iOS, Android y web sin modificaciones significativas en el código base.\n\n2. **Rendimiento Optimizado**: React's reconciliation algorithm combinado con la arquitectura nativa de Capacitor resulta en aplicaciones fluidas y responsivas.\n\n3. **Ecosistema Rico**: Acceso completo al ecosistema de npm, incluyendo bibliotecas de UI como Material-UI, Ant Design o bibliotecas especializadas para móviles como Framework7-React.\n\n4. **Hot Reload y Developer Experience**: Capacitor soporta live reload, permitiendo ver cambios instantáneamente durante el desarrollo, tanto en el navegador como en dispositivos físicos.\n\n5. **TypeScript Support**: Capacitor y React tienen soporte de primera clase para TypeScript, mejorando la seguridad de tipos y la experiencia de desarrollo.\n\n## Arquitectura de una Aplicación React + Capacitor\n\nUna aplicación típica con este stack sigue esta estructura:\n\n```\nmy-app/\n├── src/\n│   ├── components/\n│   ├── pages/\n│   ├── services/\n│   ├── hooks/\n│   └── App.tsx\n├── android/\n├── ios/\n├── public/\n├── capacitor.config.ts\n└── package.json\n```\n\n### Flujo de Trabajo de Desarrollo\n\n1. **Desarrollo en el Navegador**: La mayor parte del desarrollo se realiza en el navegador usando las herramientas de desarrollo de React habituales.\n\n2. **Testing en Dispositivos**: Con un simple comando, la aplicación se sincroniza con los proyectos nativos y puede ejecutarse en emuladores o dispositivos físicos.\n\n3. **Acceso a Funcionalidades Nativas**: Mediante los plugins de Capacitor, se accede a funcionalidades nativas de manera transparente.\n\n## Plugins Esenciales de Capacitor para Aplicaciones React\n\n### Plugins Core Oficiales\n\n**@capacitor/camera**: Acceso completo a la cámara del dispositivo con opciones para captura de fotos, selección de galería y configuración de calidad.\n\n**@capacitor/geolocation**: Obtención de la ubicación del usuario con alta precisión, tanto en primer plano como en segundo plano.\n\n**@capacitor/push-notifications**: Implementación completa de notificaciones push para iOS y Android, con soporte para notificaciones ricas y acciones personalizadas.\n\n**@capacitor/storage**: Sistema de almacenamiento persistente key-value optimizado para dispositivos móviles.\n\n**@capacitor/filesystem**: Acceso completo al sistema de archivos del dispositivo con capacidades de lectura, escritura y gestión de directorios.\n\n**@capacitor/network**: Detección del estado de conectividad y cambios en la red.\n\n**@capacitor/app**: Control del ciclo de vida de la aplicación, deep linking y gestión de URLs.\n\n### Plugins de la Comunidad\n\nLa comunidad de Capacitor ha desarrollado cientos de plugins adicionales que cubren desde autenticación biométrica hasta integración con servicios de terceros como Firebase, Stripe o Google Maps.\n\n## Caso de Uso Práctico: Aplicación de Gestión de Tareas con React y Capacitor\n\nImagina una aplicación empresarial de gestión de tareas que necesita:\n\n- **Sincronización offline-first**: Usando Capacitor Storage y Network API\n- **Notificaciones push**: Para recordatorios de tareas\n- **Captura de fotos**: Para adjuntar evidencias a las tareas\n- **Geolocalización**: Para tareas basadas en ubicación\n- **Autenticación biométrica**: Para seguridad adicional\n\nCon React y Capacitor, esta aplicación se puede desarrollar con:\n\n```javascript\nimport { Camera } from '@capacitor/camera';\nimport { Geolocation } from '@capacitor/geolocation';\nimport { PushNotifications } from '@capacitor/push-notifications';\n\n// Ejemplo de captura de foto\nconst takePhoto = async () => {\n  const photo = await Camera.getPhoto({\n    quality: 90,\n    allowEditing: false,\n    resultType: CameraResultType.Uri\n  });\n  return photo.webPath;\n};\n\n// Ejemplo de geolocalización\nconst getCurrentPosition = async () => {\n  const coordinates = await Geolocation.getCurrentPosition();\n  return {\n    lat: coordinates.coords.latitude,\n    lng: coordinates.coords.longitude\n  };\n};\n```\n\n## Rendimiento y Optimización\n\n### Estrategias de Optimización\n\n**Lazy Loading de Componentes**: React.lazy() y Suspense permiten cargar componentes bajo demanda, reduciendo el tiempo de carga inicial.\n\n**Code Splitting**: Webpack (incluido con Create React App) automáticamente divide el código en chunks más pequeños.\n\n**Virtualización de Listas**: Para listas largas, bibliotecas como react-window mejoran significativamente el rendimiento.\n\n**Minimización de Re-renders**: Uso de React.memo, useMemo y useCallback para evitar renderizados innecesarios.\n\n**Optimización de Assets**: Compresión de imágenes y uso de formatos modernos como WebP.\n\n### Métricas de Rendimiento\n\nLas aplicaciones React + Capacitor bien optimizadas pueden lograr:\n- Tiempo de carga inicial < 3 segundos\n- 60 FPS en animaciones y transiciones\n- Consumo de memoria comparable a aplicaciones nativas\n- Tamaño de bundle < 5MB (antes de assets)\n\n## Despliegue y Distribución\n\n### Proceso de Build y Publicación\n\n1. **Build de Producción**: `npm run build` genera los assets optimizados\n2. **Sincronización con Plataformas Nativas**: `npx cap sync` copia los archivos web a los proyectos nativos\n3. **Build Nativo**: Abrir Xcode/Android Studio para compilar la aplicación\n4. **Publicación en Tiendas**: Seguir los procesos estándar de App Store y Google Play\n\n### Actualizaciones Over-The-Air (OTA)\n\nCapacitor es compatible con soluciones de actualización OTA como Appflow de Ionic, permitiendo actualizar el código JavaScript y assets sin pasar por el proceso de revisión de las tiendas.\n\n## Comparación con Otras Soluciones\n\n### Capacitor vs React Native\n\n**React Native** requiere aprender componentes específicos de la plataforma y puede tener una curva de aprendizaje más pronunciada para desarrolladores web. **Capacitor** permite usar HTML, CSS y componentes web estándar.\n\n**Ventajas de Capacitor**:\n- Menor curva de aprendizaje para desarrolladores web\n- Reutilización completa del código web existente\n- Actualizaciones OTA más simples\n- Compatibilidad total con PWA\n\n**Ventajas de React Native**:\n- Rendimiento ligeramente superior en animaciones complejas\n- Componentes UI nativos por defecto\n- Ecosistema más maduro para aplicaciones móviles específicas\n\n### Capacitor vs Flutter\n\nFlutter usa Dart como lenguaje, lo que requiere aprender un nuevo stack completo. Capacitor permite a los desarrolladores JavaScript/React aprovechar sus habilidades existentes.\n\n## Casos de Éxito y Adopción Empresarial\n\nEmpresas de diversos sectores han adoptado Capacitor + React:\n\n- **Sector Financiero**: Aplicaciones bancarias y de fintech\n- **Salud**: Aplicaciones de telemedicina y gestión de pacientes\n- **E-commerce**: Aplicaciones de comercio móvil\n- **Educación**: Plataformas de aprendizaje móvil\n\n## Implementación en Nexora: Nuestra Experiencia\n\nEn Nexora, hemos adoptado Capacitor + React como nuestro stack preferido para desarrollo móvil multiplataforma. Esta decisión nos ha permitido:\n\n### Beneficios Tangibles\n\n- **Reducción del 60% en tiempos de desarrollo** comparado con desarrollo nativo dual\n- **Reutilización del 85% del código** entre web y móvil\n- **Mejora del 40% en la eficiencia del equipo** al no necesitar especialistas separados para iOS y Android\n- **Time-to-market reducido en 50%** para proyectos móviles\n\n### Proyectos Destacados\n\nHemos desarrollado aplicaciones empresariales para clientes en sectores de logística, salud y educación, todas aprovechando la potencia de React y las capacidades nativas de Capacitor. Nuestras aplicaciones han alcanzado calificaciones promedio de 4.7/5 en las tiendas de aplicaciones.\n\n## Mejores Prácticas y Recomendaciones\n\n### Arquitectura de Código\n\n1. **Separación de Lógica de Negocio**: Mantener la lógica de negocio independiente de la UI\n2. **Gestión de Estado Centralizada**: Usar Redux, Zustand o Context API según la complejidad\n3. **Abstracción de Plugins**: Crear wrappers alrededor de los plugins de Capacitor para facilitar testing y mantenimiento\n4. **Testing Comprehensivo**: Implementar tests unitarios, de integración y E2E\n\n### UI/UX para Móviles\n\n- **Diseño Touch-First**: Considerar tamaños de botones y áreas táctiles\n- **Navegación Nativa**: Usar patrones de navegación familiares para cada plataforma\n- **Feedback Háptico**: Implementar vibraciones para mejorar la experiencia táctil\n- **Gestos Naturales**: Swipes, pinch-to-zoom, etc.\n\n### Seguridad\n\n- **Almacenamiento Seguro**: Usar @capacitor/preferences con encriptación para datos sensibles\n- **Comunicación HTTPS**: Siempre usar conexiones seguras\n- **Certificate Pinning**: Implementar para APIs críticas\n- **Ofuscación de Código**: Proteger el código JavaScript en producción\n\n## El Futuro de Capacitor y React\n\nLa roadmap de Capacitor incluye:\n\n- **Capacitor 6+**: Mejoras en rendimiento y soporte para las últimas versiones de iOS y Android\n- **Capacitor Live Updates**: Sistema nativo de actualizaciones OTA\n- **Mejoras en DevTools**: Herramientas de debugging más potentes\n- **Extensión de Capacidades Nativas**: Nuevos plugins oficiales y mejoras en los existentes\n\nPor el lado de React, la introducción de Server Components y mejoras en Concurrent Mode ofrecerán nuevas oportunidades de optimización para aplicaciones móviles.\n\n## Recursos y Comunidad\n\n### Documentación y Tutoriales\n\n- **Documentación Oficial de Capacitor**: Guías comprehensivas y referencias de API\n- **React Documentation**: Recursos oficiales de React\n- **Ionic Framework**: Componentes UI optimizados para móviles compatibles con Capacitor\n\n### Comunidad Activa\n\n- **Capacitor Community Plugins**: Repositorio con más de 100 plugins de la comunidad\n- **Discord y Foros**: Canales activos de soporte\n- **Conferences y Meetups**: Eventos regulares sobre desarrollo móvil híbrido\n\n- Configuración del entorno de desarrollo\n- Creación del proyecto React\n- Instalación y configuración de Capacitor\n- Implementación de funcionalidades nativas (cámara, geolocalización)\n- Build y despliegue en dispositivos iOS y Android\n- Optimización de rendimiento\n- Publicación en las tiendas de aplicaciones\n\n**[ESPACIO PARA VIDEO DE YOUTUBE]**\n\n*El enlace al video tutorial se agregará próximamente. Suscríbete a nuestro canal para no perderte este y otros tutoriales sobre desarrollo móvil.*\n\n## Conclusión: La Elección Estratégica para el Desarrollo Móvil Moderno\n\nLa combinación de Capacitor y React representa una solución madura, eficiente y escalable para el desarrollo de aplicaciones móviles multiplataforma. Para equipos que ya tienen experiencia en desarrollo web con React, la transición a desarrollo móvil con Capacitor es natural y productiva.\n\nLas ventajas son claras:\n- Reutilización masiva de código\n- Reducción significativa de costos de desarrollo\n- Mantenimiento simplificado\n- Time-to-market acelerado\n- Acceso completo a capacidades nativas\n- Ecosistema robusto y comunidad activa\n\nEn Nexora, continuaremos apostando por esta tecnología y expandiendo nuestra expertise para ofrecer a nuestros clientes las mejores soluciones móviles del mercado. Si estás considerando desarrollar una aplicación móvil multiplataforma, Capacitor + React debería estar definitivamente en tu radar.\n\n## ¿Listo para Comenzar tu Proyecto Móvil?\n\nNuestro equipo en Nexora está preparado para ayudarte a transformar tu idea en una aplicación móvil exitosa utilizando las mejores prácticas de Capacitor y React. Contáctanos para una consulta gratuita y descubre cómo podemos acelerar tu proyecto de desarrollo móvil.",
+        autor: "Equipo de Desarrollo Móvil de Nexora",
+        fecha: "29 de octubre, 2025",
+        categoria: "Desarrollo Móvil",
+        urlFoto: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80",
+        comentarios: [],
+        videoTutorial: "https://www.youtube.com/watch?v=PPXktTJXMPE"
+      }
+
+    ];
+
+    // Handle "Leer más" clicks
+    document.addEventListener("DOMContentLoaded", function () {
+      // Esperar un poco para asegurar que el DOM esté completamente cargado
+      setTimeout(() => {
+        const readMoreButtons = document.querySelectorAll(".blog-read-more");
+        console.log("Found buttons:", readMoreButtons.length);
+        console.log("Blog posts:", blogPosts.length);
+
+        readMoreButtons.forEach((button, index) => {
+          button.addEventListener("click", function (e) {
+            e.preventDefault();
+            console.log("Button clicked, index:", index);
+
+            if (blogPosts[index]) {
+              const post = blogPosts[index];
+              console.log("Selected post:", post.titulo);
+              localStorage.setItem("postSeleccionado", JSON.stringify(post));
+              window.location.href = "post.html";
+            } else {
+              console.error("No post found for index:", index);
+            }
+          });
+        });
+      }, 100);
+    });
+  </script>
+</body>
+
 </html>
