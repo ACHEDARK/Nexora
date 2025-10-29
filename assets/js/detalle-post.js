@@ -66,29 +66,54 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Agregar video tutorial si existe
     let videoHTML = '';
-    if (post.videoTutorial) {
-        const videoId = post.videoTutorial.split('v=')[1] || post.videoTutorial.split('/').pop();
-        videoHTML = `
-            <div class="mt-12 p-8 bg-white border border-gray-200 rounded-lg shadow-sm">
-                <div class="text-center mb-6">
-                    <h3 class="text-2xl font-bold text-[#16194a] mb-2">Tutorial en Video</h3>
-                    <p class="text-gray-600">Guía completa para implementar Monday.com en tu organización</p>
+    if (post.videoTutorial && post.videoTutorial.trim() !== '') {
+        // Extraer el ID del video de diferentes formatos de URL de YouTube
+        let videoId = '';
+        const url = post.videoTutorial;
+        
+        // Formato: https://youtu.be/VIDEO_ID
+        if (url.includes('youtu.be/')) {
+            videoId = url.split('youtu.be/')[1].split('?')[0];
+        }
+        // Formato: https://www.youtube.com/watch?v=VIDEO_ID
+        else if (url.includes('youtube.com/watch?v=')) {
+            videoId = url.split('v=')[1].split('&')[0];
+        }
+        // Formato: https://www.youtube.com/embed/VIDEO_ID
+        else if (url.includes('youtube.com/embed/')) {
+            videoId = url.split('embed/')[1].split('?')[0];
+        }
+        // Si solo es el ID
+        else if (!url.includes('http')) {
+            videoId = url;
+        }
+        
+        if (videoId) {
+            videoHTML = `
+                <div class="mt-12 p-8 bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl shadow-lg">
+                    <div class="text-center mb-6">
+                        <h3 class="text-3xl font-bold text-[#16194a] mb-3">Tutorial en Video</h3>
+                        <p class="text-gray-600 text-lg">Guía completa paso a paso sobre ${post.titulo}</p>
+                    </div>
+                    <div class="relative w-full bg-black rounded-xl overflow-hidden shadow-2xl" style="padding-bottom: 56.25%;">
+                        <iframe 
+                            class="absolute top-0 left-0 w-full h-full"
+                            src="https://www.youtube.com/embed/${videoId}"
+                            title="Tutorial de ${post.titulo}"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <p class="text-sm text-gray-600 italic">
+                            <span class="inline-block mr-2"></span>
+                            Video tutorial creado por el equipo de expertos de Nexora
+                        </p>
+                    </div>
                 </div>
-                <div class="relative w-full bg-gray-100 rounded-lg overflow-hidden" style="padding-bottom: 56.25%;">
-                    <iframe 
-                        class="absolute top-0 left-0 w-full h-full"
-                        src="https://www.youtube.com/embed/${videoId}"
-                        title="Tutorial de ${post.titulo}"
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <div class="mt-4 text-center">
-                    <p class="text-sm text-gray-500">Video tutorial proporcionado por el equipo de Nexora</p>
-                </div>
-            </div>
-        `;
+            `;
+        }
     }
     
     articulo.innerHTML = `
